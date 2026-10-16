@@ -1,0 +1,258 @@
+{
+  "engine_commit": "54b832c9374c7f97944e52ec40ba801deb801b7e",
+  "base_distribution": "PROVENANCE.json; source preparation retained under author-production-archive/visualpde/engine-research",
+  "local_changes": [
+    "Ivory/forest colour map and editor selection",
+    "Local analytics-disabled wording",
+    "Two optional image assets from the same upstream commit",
+    "Same-origin researchStep message: pauses ordinary animation, advances a bounded requested batch with existing timestep(), forces a fresh mean probe and acknowledges its final time for the PNAS comparison",
+    "Versioned engine module URL so existing browser caches load the researchStep implementation",
+    "Research mode: refresh mean probe after brush strokes while paused; right-click replace brush erases to zero biomass",
+    "Research mode: signal ready only after both initial image loads; generation guards ignore obsolete image callbacks before they can reset a running comparison",
+    "2026-10-16: opt-in integer-hash Gaussian generator for noise and GL research presets; symmetric open midpoint uniforms remove the confirmed negative endpoint bias of the legacy sin/fract generator. Upstream presets retain legacy behavior.",
+    "2026-10-16 publication packaging: editor help links point to the official VisualPDE documentation; favicon manifests use relative icon paths and correct WebP media types; optional tutorials retain WebM only; native module cache version updated. No equations, time-step formulas, initial fields or parameter values changed.",
+    "Publication packaging omits the unrendered upstream Jekyll template. Two source comments refer generically to upstream implementation notes instead of a developer-specific absolute path; executable statements are unchanged."
+  ],
+  "solver_source_modified": true,
+  "files": [
+    {
+      "path": "sim/images/cursor-circle.svg",
+      "status": "added",
+      "sha256": "7114aebbe7f102a5c7a1be001e611855b9d73a230bdc0abd75c9de5a3feecb4a"
+    },
+    {
+      "path": "sim/images/qr-code-home.webp",
+      "status": "added",
+      "sha256": "31f04dec066c5681423d3b5bd090da269aecc01f81989054d75c579ff7f452fc"
+    },
+    {
+      "path": "sim/index.html",
+      "status": "modified",
+      "sha256": "a0834e1ddabf81db3fdbbd1d62c65d55dec9cff805d4b77111a0e362801d4659"
+    },
+    {
+      "path": "sim/scripts/RD/main.js",
+      "status": "modified",
+      "sha256": "bb0a8aad4c815f8f9649c9130780e800db2a4dbf668a695d3aff654dc1d6ff03"
+    },
+    {
+      "path": "sim/scripts/colourmaps.js",
+      "status": "modified",
+      "sha256": "64c4356378a6e7ac2de24e85c5bdae938e1d8fa1b867b8f5d7a004015e182408"
+    },
+    {
+      "path": "sim/scripts/rand_shader.js",
+      "status": "modified",
+      "sha256": "270d7ecc0d1d3235ab5eab2b1f0abe91cc49c7bda646ebc0c79e73c23a978d3c"
+    },
+    {
+      "path": "sim/scripts/RD/presets.js",
+      "status": "modified",
+      "sha256": "1e6eab923360f697e74abb522124c3864362412887e5fa25dd4b7539d952f366"
+    },
+    {
+      "path": "sim/scripts/RD/tours.js",
+      "status": "modified",
+      "sha256": "303e7a998379c9a32234c28d7c14d37665c5f2e3cce560a98629ee1c348445d1"
+    },
+    {
+      "path": "assets/favicons/site.webmanifest",
+      "status": "modified",
+      "sha256": "72a538aaf15f4446fe89e12a3fcc187edee7d47998ecc2ac787c1eb695429806"
+    },
+    {
+      "path": "assets/favicons/browserconfig.xml",
+      "status": "modified",
+      "sha256": "e0b391c09d1251ea71d4ad1cea6615972e68a46ea64b7bb725db50ef10fb144e"
+    },
+    {
+      "path": "sim/scripts/RD/species_config.js",
+      "status": "modified",
+      "sha256": "12e1fb2b4720ea92e65701ddbbc16d0d0f8cd12823cc785f83808f567600614d"
+    }
+  ],
+  "solver_change_scope": "Execution scheduling, image readiness, probe timing and research brush behavior changed in main.js; spatial shaders and timestep numerical formulas unchanged. Optional research Gaussian noise generator added and selected by noise/GL presets; deterministic spatial stencils, time stepping formulas and legacy presets unchanged by this fix.",
+  "research_gaussian_generator": {
+    "option": "gaussianNoiseGenerator=integer-hash",
+    "scope": "Opt-in for the local noise-* and gl-* research presets only; legacy RAND and default RANDN behavior unchanged.",
+    "algorithm": "Two stages of the 32-bit lowbias32 integer permutation. First mix floatBitsToUint(seed) with four distinct additive channel salts, then XOR the packed integer render-target cell coordinates and apply lowbias32 again.",
+    "algorithm_source": "https://github.com/skeeto/hash-prospector",
+    "constants": {
+      "shifts": [
+        16,
+        15,
+        16
+      ],
+      "multipliers": [
+        "0x7feb352d",
+        "0x846ca68b"
+      ],
+      "channel_salts": [
+        "0x00000000",
+        "0x9e3779b9",
+        "0x3c6ef372",
+        "0xdaa66d2b"
+      ]
+    },
+    "uniform_mapping": "U = ((hash >> 9) + 0.5) / 8388608; a symmetric 23-bit midpoint grid strictly inside (0,1), exactly represented in float32.",
+    "normal_mapping": "sqrt(2) * erfinv(2*U-1), retaining the engine approximate odd inverse-erf; its asymmetric endpoint exception is unreachable for this generator.",
+    "temporal_seed": "Existing updateRandomSeed() sequence advances once per Euler step when setSeed=false. Cell and Gaussian channel have separate integer keys. No finite sample mean is subtracted.",
+    "coordinate_bound": "Packed x and y each use 16 bits, exceeding the 256x128 and 192x192 research grids.",
+    "reason": "The legacy float sin/fract hash produced a nonzero point mass at U=0, mapped only to a negative Gaussian tail; the resulting mean favored the negative phase.",
+    "legacy_gpu_audit": {
+      "samples": 3276800,
+      "mean": -0.00682397,
+      "variance": 0.986965,
+      "nominal_iid_standard_error": 0.000549,
+      "uniform_zero_fraction": 0.002508
+    },
+    "validation_artifact": "author-production-archive/noise-bias-20261016/gpu-rng-audit.html",
+    "validation_scope": "Measured in this browser and WebGL2 implementation with finite samples. Nominal IID errors are descriptive; this does not prove independence at every lag, absence of every possible bias, or identical trajectories across hardware.",
+    "GPU_validation": {
+      "date": "2026-10-16",
+      "method": "Direct WebGL2 RGBA32F noise-only shader draws in this browser, importing both current local randNShader implementations; 100 draws on a 256x128 grid for each initial seed.",
+      "seed_starts": [
+        20261016,
+        8256,
+        7654321
+      ],
+      "samples_per_trial": 3276800,
+      "trials_per_generator": 3,
+      "results": [
+        {
+          "generator": "legacy",
+          "seed_start": 20261016,
+          "N": 3276800,
+          "mean": -0.006823973269928487,
+          "variance": 0.9869651849049179,
+          "channel2_mean": -0.0048263401259811545,
+          "channel2_variance": 0.9852467744256869,
+          "cross_channel_correlation": -0.00013425777805697818,
+          "mean_nominal_iid_standard_error": 0.0005488149700672431,
+          "uniform_mean": 0.49865169972596507,
+          "uniform_zero_fraction": 0.00250823974609375,
+          "negative_fraction": 0.5001705932617188,
+          "positive_fraction": 0.4973175048828125,
+          "nonfinite": 0
+        },
+        {
+          "generator": "legacy",
+          "seed_start": 8256,
+          "N": 3276800,
+          "mean": -0.006326365128927059,
+          "variance": 0.9863760064154568,
+          "channel2_mean": -0.009014116180027827,
+          "channel2_variance": 0.9878481150801068,
+          "cross_channel_correlation": -0.00011184110240540115,
+          "mean_nominal_iid_standard_error": 0.000548651135389413,
+          "uniform_mean": 0.4987942767375671,
+          "uniform_zero_fraction": 0.00255340576171875,
+          "negative_fraction": 0.4999148559570312,
+          "positive_fraction": 0.49753265380859374,
+          "nonfinite": 0
+        },
+        {
+          "generator": "legacy",
+          "seed_start": 7654321,
+          "N": 3276800,
+          "mean": -0.006070224821363119,
+          "variance": 0.9881661939021509,
+          "channel2_mean": -0.005046818485421696,
+          "channel2_variance": 0.9868061985714747,
+          "cross_channel_correlation": 5.731807669145239e-05,
+          "mean_nominal_iid_standard_error": 0.000549148786968457,
+          "uniform_mean": 0.4988220369619103,
+          "uniform_zero_fraction": 0.002532958984375,
+          "negative_fraction": 0.499822998046875,
+          "positive_fraction": 0.49763458251953124,
+          "nonfinite": 0
+        },
+        {
+          "generator": "integer-hash",
+          "seed_start": 20261016,
+          "N": 3276800,
+          "mean": -0.00020311421351525637,
+          "variance": 1.0004100343279265,
+          "channel2_mean": -0.00011617476765245272,
+          "channel2_variance": 0.9996990271837587,
+          "cross_channel_correlation": -0.0010318071806603756,
+          "mean_nominal_iid_standard_error": 0.0005525404182468142,
+          "uniform_mean": 0.4999299955074457,
+          "uniform_zero_fraction": 0,
+          "negative_fraction": 0.5001229858398437,
+          "positive_fraction": 0.49987701416015623,
+          "nonfinite": 0
+        },
+        {
+          "generator": "integer-hash",
+          "seed_start": 8256,
+          "N": 3276800,
+          "mean": 0.00044166333476738375,
+          "variance": 0.9988429159457899,
+          "channel2_mean": 0.0009161870129925021,
+          "channel2_variance": 1.0001187463335834,
+          "cross_channel_correlation": 0.00041885620920540664,
+          "mean_nominal_iid_standard_error": 0.0005521074779603918,
+          "uniform_mean": 0.5000851351095844,
+          "uniform_zero_fraction": 0,
+          "negative_fraction": 0.49990570068359375,
+          "positive_fraction": 0.5000942993164063,
+          "nonfinite": 0
+        },
+        {
+          "generator": "integer-hash",
+          "seed_start": 7654321,
+          "N": 3276800,
+          "mean": 0.00033780684820111873,
+          "variance": 0.9986206199433927,
+          "channel2_mean": 0.0005654786081603902,
+          "channel2_variance": 1.0004094693406669,
+          "cross_channel_correlation": -8.728736887570585e-05,
+          "mean_nominal_iid_standard_error": 0.0005520460378116885,
+          "uniform_mean": 0.500089885028392,
+          "uniform_zero_fraction": 0,
+          "negative_fraction": 0.4998211669921875,
+          "positive_fraction": 0.5001788330078125,
+          "nonfinite": 0
+        }
+      ],
+      "complete_midpoint_quantile_CPU_check": {
+        "uniform_count": 8388608,
+        "uniform_range": [
+          5.960464477539063e-08,
+          0.9999999403953552
+        ],
+        "normal_mean_over_complete_uniform_grid": 0.0,
+        "normal_variance_over_complete_uniform_grid": 0.9994242524688874,
+        "maximum_opposite_quantile_sum": 0.0,
+        "finite": true
+      },
+      "result": "The negative mean and zero-uniform endpoint mass measured in all three legacy trials were absent at the tested statistical resolution with the opt-in integer generator. All three corrected first-channel means were within one nominal IID standard error of zero; both channels had near-unit measured variance and no nonfinite values.",
+      "scope": "Measured in this browser and WebGL2 implementation with finite samples. Nominal IID errors are descriptive; this does not prove independence at every lag, absence of every possible bias, or identical trajectories across hardware.",
+      "source_artifact": "author-production-archive/noise-bias-20261016/gpu-comparison.json",
+      "source_sha256": "64ae984814d64d3ff4d573c1a1ddc8a8fbc5f82cf790f9e6f9331912faabdab6"
+    },
+    "native_engine_validation": {
+      "entry_version": "sim/scripts/RD/main.js?research=9",
+      "shader_and_preset_import_version": "gaussian=2",
+      "observed_by": "Root agent via current browser UI, visible iframe URL and console diagnostics",
+      "noise": {
+        "preset": "noise-boundary-coarsening",
+        "alpha": 0.42,
+        "sigma": 0.2,
+        "observed_time_approx": 801.4,
+        "observed_wall_measure_approx": 1.137,
+        "console_errors": 0,
+        "result": "Loaded requested parameters and evolved the visible lattice with finite displayed aggregate."
+      },
+      "gl": {
+        "preset": "gl-vortices",
+        "observed_time_approx": 55.6,
+        "observed_mean_amplitude_squared_approx": 0.963,
+        "console_errors": 0,
+        "result": "Evolved the visible complex field with finite displayed aggregate."
+      },
+      "scope": "Native-engine compile and functional evolution checks of these presets in this browser, not an exhaustive parameter or convergence study."
+    }
+  }
+}

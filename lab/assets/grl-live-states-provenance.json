@@ -1,0 +1,365 @@
+{
+  "date": "2026-10-15",
+  "paper_doi": "10.1029/2025GL118462",
+  "source": {
+    "file": "research-repositories/vegetation-spot-arrays/Data/Numerical_Simulation/Integrator.py",
+    "sha256": "cda8b8efd4bf76646e975912ce8e19a9b7012b68206eb47aca4392c654b0d5be",
+    "function": "VegetationNV_Isotropic"
+  },
+  "initial": {
+    "type": "Sum of 20 Gaussian spots at randomly distributed periodic positions",
+    "seed": 20261015,
+    "generator": "numpy.random.default_rng",
+    "peak_amplitude": 1.0,
+    "sigma": 1.2,
+    "minimum_center_distance": 10.0,
+    "centers": [
+      [
+        29.95856621895118,
+        62.66256911891619
+      ],
+      [
+        50.65081909649199,
+        44.02540747744367
+      ],
+      [
+        0.482861331325535,
+        81.60130906316678
+      ],
+      [
+        2.326169944739221,
+        94.37641624976943
+      ],
+      [
+        85.07931611482613,
+        93.26181088493247
+      ],
+      [
+        97.80879652440994,
+        62.193160619154284
+      ],
+      [
+        96.554688777869,
+        48.09205822102951
+      ],
+      [
+        70.73574956149145,
+        25.05295435314061
+      ],
+      [
+        37.90220852796032,
+        53.83586059804001
+      ],
+      [
+        85.22038024943866,
+        4.373372053566313
+      ],
+      [
+        54.30613190986409,
+        3.822086120185025
+      ],
+      [
+        45.15607313290489,
+        28.323442411176664
+      ],
+      [
+        60.490630377681754,
+        94.9647821565006
+      ],
+      [
+        71.63077168727806,
+        93.60110795537895
+      ],
+      [
+        36.97754766940719,
+        74.75699968447887
+      ],
+      [
+        28.386111541009598,
+        95.97735712266172
+      ],
+      [
+        59.16867895724757,
+        57.07822829242915
+      ],
+      [
+        45.772138180146115,
+        94.57895926720686
+      ],
+      [
+        39.51964836331769,
+        11.672019230373122
+      ],
+      [
+        87.445833475556,
+        76.89210082935355
+      ]
+    ],
+    "biomass_asset": {
+      "file": "grl-random-spots-214-rgb24.png",
+      "bytes": 28814,
+      "sha256": "d42ecc210518e0ca8452a2f29ad695221801a82db77ff98481202739145a5e62",
+      "lower": 0.0,
+      "span": 1.5,
+      "maximum_roundtrip_error": 4.4694461949143505e-08
+    }
+  },
+  "grid": {
+    "nx": 214,
+    "ny": 214,
+    "dx": 0.49839252336448603,
+    "dy": 0.49839252336448603,
+    "Lx": 106.656,
+    "Ly": 106.656,
+    "boundary": "periodic",
+    "old_grid": 160,
+    "old_dx": 0.6666
+  },
+  "heterogeneity": {
+    "asset": {
+      "file": "grl-quenched-xi-seed3008-214-rgb24.png",
+      "bytes": 88249,
+      "sha256": "81cc542344e232c3d4ec175ece7e571f936ae55f1f6f4534afcd66b21de0ec0e",
+      "lower": -4.253586449200557,
+      "span": 8.202675349917092,
+      "maximum_roundtrip_error": 0.0
+    },
+    "source": "grl-quenched-xi-seed3008-rgb24.png",
+    "mapping": "Same piecewise-constant physical field: floor((new_cell_index+.5)*160/214) in each axis.",
+    "new_noise_draw": false,
+    "renormalized": false,
+    "old_sample_mean": -0.004912982973380802,
+    "old_sample_std": 0.9938830054224225,
+    "new_sample_mean": -0.007507080805475226,
+    "new_sample_std": 0.9928055557360281
+  },
+  "time_integration": {
+    "scheme": "Forward Euler",
+    "dt": 0.001,
+    "steps_per_frame": 240,
+    "high_frequency_biharmonic_only_dt_bound_for_b_le_1_5": 0.010283354892206994,
+    "bound_note": "Frozen-coefficient biharmonic term only; numerical pilots and step halving check the complete nonlinear update."
+  },
+  "original_rhs_one_step_max_abs_error": 1.1102230246251565e-16,
+  "short_references": {
+    "clusters_float32": [
+      {
+        "time": 0.0,
+        "mean": 0.015907494007002154,
+        "minimum": 0.0,
+        "maximum": 0.9984230399131775
+      },
+      {
+        "time": 0.24,
+        "mean": 0.015842899676891908,
+        "minimum": 0.0,
+        "maximum": 0.9950590133666992
+      },
+      {
+        "time": 0.48,
+        "mean": 0.01578530153076131,
+        "minimum": 0.0,
+        "maximum": 0.9973390698432922
+      }
+    ],
+    "homogeneous_float32": [
+      {
+        "time": 0.0,
+        "mean": 0.015907494007002154,
+        "minimum": 0.0,
+        "maximum": 0.9984230399131775
+      },
+      {
+        "time": 0.24,
+        "mean": 0.015951456235054392,
+        "minimum": 0.0,
+        "maximum": 0.9863465428352356
+      },
+      {
+        "time": 0.48,
+        "mean": 0.015996710451140733,
+        "minimum": 0.0,
+        "maximum": 0.9841982126235962
+      }
+    ],
+    "clusters_float64": [
+      {
+        "time": 0.0,
+        "mean": 0.015907493641447997,
+        "minimum": 0.0,
+        "maximum": 0.9984230398191833
+      },
+      {
+        "time": 0.24,
+        "mean": 0.015842899448104252,
+        "minimum": 6.157456790585688e-203,
+        "maximum": 0.9950588069037807
+      },
+      {
+        "time": 0.48,
+        "mean": 0.015785301431987676,
+        "minimum": 1.1255584543363803e-180,
+        "maximum": 0.9973389182752896
+      }
+    ],
+    "homogeneous_float64": [
+      {
+        "time": 0.0,
+        "mean": 0.015907493641447997,
+        "minimum": 0.0,
+        "maximum": 0.9984230398191833
+      },
+      {
+        "time": 0.24,
+        "mean": 0.015951455688795885,
+        "minimum": 6.196276051983423e-203,
+        "maximum": 0.9863466183691398
+      },
+      {
+        "time": 0.48,
+        "mean": 0.01599670985505347,
+        "minimum": 1.1436494503815532e-180,
+        "maximum": 0.9841983250688243
+      }
+    ]
+  },
+  "cases": {
+    "clusters": {
+      "eta": 0.15,
+      "Gamma": 0.08,
+      "gamma": 0.65,
+      "samples": [
+        {
+          "time": 0,
+          "mean": 0.015907493641447997,
+          "minimum": 0.0,
+          "maximum": 0.9984230398191833,
+          "finite": true,
+          "local_maxima_over_0_2": 20,
+          "occupied_8x8_macrotiles": 30
+        },
+        {
+          "time": 10.0,
+          "mean": 0.014461242384447728,
+          "minimum": 1.3861300240044545e-93,
+          "maximum": 1.1054600408282953,
+          "finite": true,
+          "local_maxima_over_0_2": 20,
+          "occupied_8x8_macrotiles": 28
+        },
+        {
+          "time": 100.0,
+          "mean": 0.018212212568803107,
+          "minimum": 3.9961781339784716e-42,
+          "maximum": 1.1787669465666504,
+          "finite": true,
+          "local_maxima_over_0_2": 29,
+          "occupied_8x8_macrotiles": 32
+        },
+        {
+          "time": 300.0,
+          "mean": 0.023901349388719715,
+          "minimum": 3.417846097188889e-34,
+          "maximum": 1.2344271631553148,
+          "finite": true,
+          "local_maxima_over_0_2": 38,
+          "occupied_8x8_macrotiles": 34
+        },
+        {
+          "time": 600.0,
+          "mean": 0.030521784110278647,
+          "minimum": 1.3970976430068633e-33,
+          "maximum": 1.2256733958148363,
+          "finite": true,
+          "local_maxima_over_0_2": 48,
+          "occupied_8x8_macrotiles": 35
+        },
+        {
+          "time": 1000.0,
+          "mean": 0.036216577557341666,
+          "minimum": 1.160761293167412e-32,
+          "maximum": 1.2253614094780638,
+          "finite": true,
+          "local_maxima_over_0_2": 55,
+          "occupied_8x8_macrotiles": 38
+        }
+      ],
+      "step_halving_from_time": 1000,
+      "duration": 1.0,
+      "max_abs_difference": 1.4682069318650015e-07,
+      "rms_difference": 2.5278740872314733e-09,
+      "wall_seconds": 119.69473775010556
+    },
+    "homogeneous": {
+      "eta": 0.12,
+      "Gamma": 0.0,
+      "gamma": 0.65,
+      "samples": [
+        {
+          "time": 0,
+          "mean": 0.015907493641447997,
+          "minimum": 0.0,
+          "maximum": 0.9984230398191833,
+          "finite": true,
+          "local_maxima_over_0_2": 20,
+          "occupied_8x8_macrotiles": 30
+        },
+        {
+          "time": 10.0,
+          "mean": 0.016469579988960856,
+          "minimum": 2.0124027408819688e-93,
+          "maximum": 1.0611495012771115,
+          "finite": true,
+          "local_maxima_over_0_2": 20,
+          "occupied_8x8_macrotiles": 30
+        },
+        {
+          "time": 100.0,
+          "mean": 0.016242132298481073,
+          "minimum": 3.131335153644625e-41,
+          "maximum": 1.0705269498981398,
+          "finite": true,
+          "local_maxima_over_0_2": 20,
+          "occupied_8x8_macrotiles": 29
+        },
+        {
+          "time": 300.0,
+          "mean": 0.01625457712384157,
+          "minimum": 3.343787294028653e-33,
+          "maximum": 1.070620465807138,
+          "finite": true,
+          "local_maxima_over_0_2": 20,
+          "occupied_8x8_macrotiles": 29
+        },
+        {
+          "time": 600.0,
+          "mean": 0.02860212631640097,
+          "minimum": 2.5561299018948308e-33,
+          "maximum": 1.125268956237479,
+          "finite": true,
+          "local_maxima_over_0_2": 39,
+          "occupied_8x8_macrotiles": 35
+        },
+        {
+          "time": 1000.0,
+          "mean": 0.0749326811042329,
+          "minimum": 7.800468039701168e-30,
+          "maximum": 1.1389120417807306,
+          "finite": true,
+          "local_maxima_over_0_2": 113,
+          "occupied_8x8_macrotiles": 44
+        }
+      ],
+      "step_halving_from_time": 1000,
+      "duration": 1.0,
+      "max_abs_difference": 4.793336896291578e-07,
+      "rms_difference": 1.7243593440583335e-08,
+      "wall_seconds": 110.76763670798391
+    }
+  },
+  "limitations": [
+    "Finite-time CPU pilots and coarse metrics are not paper ensemble statistics or a full GPU-field verification.",
+    "Refining biomass sampling changes the discrete evolution. The same quenched landscape is sampled without redrawing or variance renormalization.",
+    "The original 160-cell landscape is interpreted as piecewise constant; its finer-grid sample mean and variance need not match the coarse-grid empirical values exactly."
+  ]
+}

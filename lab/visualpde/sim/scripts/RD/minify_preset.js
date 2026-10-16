@@ -1,0 +1,261 @@
+class TwoWayMap {
+  constructor(map) {
+    this.map = map;
+    this.reverseMap = {};
+    for (const key in map) {
+      const value = map[key];
+      this.reverseMap[value] = key;
+    }
+  }
+  get(key) {
+    return this.map[key];
+  }
+  revGet(key) {
+    return this.reverseMap[key];
+  }
+}
+
+export function minifyPreset(preset) {
+  var miniPreset = {};
+  const pm = presetMap();
+  for (var key of Object.keys(preset)) {
+    if (pm.map.hasOwnProperty(key)) {
+      // Use a minified name if one is defined.
+      miniPreset[pm.get(key)] = preset[key];
+    } else {
+      // Fallback to inserting the non-minified version.
+      miniPreset[key] = preset[key];
+    }
+  }
+  return miniPreset;
+}
+
+export function maxifyPreset(mp) {
+  var preset = {};
+  const pm = presetMap();
+  for (var key of Object.keys(mp)) {
+    if (pm.reverseMap.hasOwnProperty(key)) {
+      // Use a minified name if one is defined.
+      preset[pm.revGet(key)] = mp[key];
+    } else {
+      // Fallback to inserting the non-minified version.
+      preset[key] = mp[key];
+    }
+  }
+  return preset;
+}
+
+function presetMap() {
+  return new TwoWayMap({
+    activeViewInd: "aVi",
+    algebraicV: "aV",
+    algebraicW: "aW",
+    autoPause: "ap",
+    autoPauseAt: "apa",
+    autoSetColourRange: "a",
+    backgroundColour: "b",
+    boundaryConditions_1: "bU",
+    boundaryConditions_2: "bV",
+    boundaryConditions_3: "bW",
+    boundaryConditions_4: "bQ",
+    boundaryConditions_5: "b5",
+    boundaryConditions_6: "b6",
+    boundaryConditions_7: "b7",
+    boundaryConditions_8: "b8",
+    brushAction: "ba",
+    brushEnabled: "be",
+    brushRadius: "br",
+    brushValue: "bv",
+    cameraTheta: "ct",
+    cameraPhi: "cp",
+    cameraZoom: "cz",
+    initCond_1: "cU",
+    initCond_2: "cV",
+    initCond_3: "cW",
+    initCond_4: "cQ",
+    initCond_5: "c5",
+    initCond_6: "c6",
+    initCond_7: "c7",
+    initCond_8: "c8",
+    colourbar: "cb",
+    colourbarMaxStr: "cM",
+    colourbarMinStr: "cm",
+    colourmap: "c",
+    comboStr_1: "csU",
+    comboStr_2: "csV",
+    comboStr_3: "csW",
+    comboStr_4: "csQ",
+    comboStr_5: "cs5",
+    comboStr_6: "cs6",
+    comboStr_7: "cs7",
+    comboStr_8: "cs8",
+    contours: "co",
+    contourColour: "cC",
+    contourEpsilon: "cE",
+    contourNum: "cN",
+    crossDiffusion: "cD",
+    customSurface: "cu",
+    diffusionStr_1_1: "dUU",
+    diffusionStr_1_2: "dUV",
+    diffusionStr_1_3: "dUW",
+    diffusionStr_1_4: "dUQ",
+    diffusionStr_1_5: "d15",
+    diffusionStr_1_6: "d16",
+    diffusionStr_1_7: "d17",
+    diffusionStr_1_8: "d18",
+    diffusionStr_2_1: "dVU",
+    diffusionStr_2_2: "dVV",
+    diffusionStr_2_3: "dVW",
+    diffusionStr_2_4: "dVQ",
+    diffusionStr_2_5: "d25",
+    diffusionStr_2_6: "d26",
+    diffusionStr_2_7: "d27",
+    diffusionStr_2_8: "d28",
+    diffusionStr_3_1: "dWU",
+    diffusionStr_3_2: "dWV",
+    diffusionStr_3_3: "dWW",
+    diffusionStr_3_4: "dWQ",
+    diffusionStr_3_5: "d35",
+    diffusionStr_3_6: "d36",
+    diffusionStr_3_7: "d37",
+    diffusionStr_3_8: "d38",
+    diffusionStr_4_1: "dQU",
+    diffusionStr_4_2: "dQV",
+    diffusionStr_4_3: "dQW",
+    diffusionStr_4_4: "dQQ",
+    diffusionStr_4_5: "d45",
+    diffusionStr_4_6: "d46",
+    diffusionStr_4_7: "d47",
+    diffusionStr_4_8: "d48",
+    diffusionStr_5_1: "d51",
+    diffusionStr_5_2: "d52",
+    diffusionStr_5_3: "d53",
+    diffusionStr_5_4: "d54",
+    diffusionStr_5_5: "d55",
+    diffusionStr_5_6: "d56",
+    diffusionStr_5_7: "d57",
+    diffusionStr_5_8: "d58",
+    diffusionStr_6_1: "d61",
+    diffusionStr_6_2: "d62",
+    diffusionStr_6_3: "d63",
+    diffusionStr_6_4: "d64",
+    diffusionStr_6_5: "d65",
+    diffusionStr_6_6: "d66",
+    diffusionStr_6_7: "d67",
+    diffusionStr_6_8: "d68",
+    diffusionStr_7_1: "d71",
+    diffusionStr_7_2: "d72",
+    diffusionStr_7_3: "d73",
+    diffusionStr_7_4: "d74",
+    diffusionStr_7_5: "d75",
+    diffusionStr_7_6: "d76",
+    diffusionStr_7_7: "d77",
+    diffusionStr_7_8: "d78",
+    diffusionStr_8_1: "d81",
+    diffusionStr_8_2: "d82",
+    diffusionStr_8_3: "d83",
+    diffusionStr_8_4: "d84",
+    diffusionStr_8_5: "d85",
+    diffusionStr_8_6: "d86",
+    diffusionStr_8_7: "d87",
+    diffusionStr_8_8: "d88",
+    dirichletStr_1: "dU",
+    dirichletStr_2: "dV",
+    dirichletStr_3: "dW",
+    dirichletStr_4: "dQ",
+    dirichletStr_5: "d5",
+    dirichletStr_6: "d6",
+    dirichletStr_7: "d7",
+    dirichletStr_8: "d8",
+    dimension: "di",
+    domainIndicatorFun: "d",
+    domainScale: "ds",
+    domainViaIndicatorFun: "dv",
+    drawIn3D: "dr",
+    dt: "dt",
+    emboss: "e",
+    embossAmbient: "eA",
+    embossDiffuse: "eD",
+    embossPhi: "eP",
+    embossShiny: "eSh",
+    embossSmoothness: "eSm",
+    embossSpecular: "eSp",
+    embossTheta: "eT",
+    expressions: "ex",
+    expressionsShow: "exS",
+    fixRandSeed: "f",
+    flippedColourmap: "fc",
+    forceManualInterpolation: "fI",
+    forceTryClickingPopup: "fT",
+    imagePathOne: "io",
+    imagePathTwo: "it",
+    initialState: "iS",
+    integrate: "i",
+    kineticParams: "k",
+    lineWidthMul: "lm",
+    maxColourValue: "ma",
+    maxSurfaceValue: "mas",
+    minColourValue: "mi",
+    minSurfaceValue: "mis",
+    neumannStr_1: "nU",
+    neumannStr_2: "nV",
+    neumannStr_3: "nW",
+    neumannStr_4: "nQ",
+    neumannStr_5: "n5",
+    neumannStr_6: "n6",
+    neumannStr_7: "n7",
+    neumannStr_8: "n8",
+    numAlgebraicSpecies: "na",
+    numSpecies: "n",
+    numTimestepsPerFrame: "nT",
+    oneDimensional: "o",
+    onlyExposeOptions: "oE",
+    overlay: "ov",
+    overlayColour: "oC",
+    overlayEpsilon: "ovE",
+    overlayExpr: "oF",
+    parent: "pa",
+    plotType: "pT",
+    preset: "p",
+    randSeed: "rs",
+    reactionNames: "rn",
+    resetOnImageLoad: "ri",
+    renderSize: "r",
+    reactionStr_1: "rU",
+    reactionStr_2: "rV",
+    reactionStr_3: "rW",
+    reactionStr_4: "rQ",
+    reactionStr_5: "r5",
+    reactionStr_6: "r6",
+    reactionStr_7: "r7",
+    reactionStr_8: "r8",
+    resetFromCheckpoints: "rF",
+    resizeCheckpoints: "rC",
+    robinStr_1: "roU",
+    robinStr_2: "roV",
+    robinStr_3: "roW",
+    robinStr_4: "roQ",
+    robinStr_5: "ro5",
+    robinStr_6: "ro6",
+    robinStr_7: "ro7",
+    robinStr_8: "ro8",
+    runningOnLoad: "rL",
+    showAllOptionsOverride: "s",
+    smoothingScale: "sm",
+    spatialStep: "sp",
+    speciesNames: "sn",
+    squareCanvas: "sq",
+    surfaceFun: "sF",
+    suppressTryClickingPopup: "su",
+    threeD: "t",
+    threeDHeightScale: "th",
+    timeDisplay: "td",
+    timesteppingScheme: "ts",
+    tryClickingText: "tc",
+    typesetCustomEqs: "te",
+    brushType: "tb",
+    views: "v",
+    whatToDraw: "wd",
+    whatToPlot: "wp",
+  });
+}

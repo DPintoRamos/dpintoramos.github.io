@@ -1,0 +1,299 @@
+{
+  "model": "Nonreciprocal coupling induced self-assembled localized structures",
+  "publication": {
+    "journal": "Physical Review Letters",
+    "year": 2021,
+    "doi": "10.1103/PhysRevLett.126.194102",
+    "equation": 2,
+    "parameter_reference": "Figure 4: omega=1, D=0.4, alpha=0.5",
+    "author_pdf": "https://www.cec.uchile.cl/~mclerc/Pdf/articles/Article168.pdf"
+  },
+  "research_code": {
+    "repository": "nonreciprocal-localized-structures",
+    "path": "scripts/figure_04/00_generate_raw_data.py",
+    "sha256": "acbbdf15a89dcb925b33956b3795b8e4f7c027f9fcd52c61f51560bfc00e100f"
+  },
+  "visualpde_equivalence": {
+    "configured_reaction": "omega^2*sin(theta)-2*alpha*theta_x",
+    "configured_diffusion": "D",
+    "fixed_dx": 1,
+    "nodes": 192,
+    "meaning": "Each grid node is a physical oscillator; the mesh is not refined toward a continuum limit.",
+    "left_boundary": "The first lattice node is fixed at zero.",
+    "right_boundary": "Zero centred Neumann: the ghost value equals the penultimate node, matching the recovered production implementation.",
+    "production_boundary_detail": "The recovered RK4 routine resets index 0 at every RHS call. Its output can contain a transient value at the constrained slot; all other nodes agree with continuously clamping that slot to zero."
+  },
+  "initial_conditions": {
+    "prl-seed": "A local Gaussian perturbation, theta=pi*exp(-((x-10)/4)^2).",
+    "prl-train": "An analytic alternating train, theta=pi*tanh(3*sin(2*pi*(x-5)/24)). This illustrative initialization is not an archived research field.",
+    "prl-front": "The same Gaussian perturbation, with reciprocal coupling alpha=0."
+  },
+  "coordinates": "VisualPDE evaluates the node centres at x=0.5,1.5,...,191.5; differences between adjacent nodes are exactly 1.",
+  "numerics": {
+    "method": "RK4",
+    "dt": 0.05,
+    "steps_per_display_frame": 16,
+    "float_precision": "GPU floating-point precision is device dependent."
+  },
+  "display": {
+    "profile": "theta/pi",
+    "metric": "mean(abs(theta))/pi",
+    "mouse": "A vertical brush replaces selected oscillator angles with pi.",
+    "blank_canvas": "theta=0, initially paused for drawing.",
+    "vertical_range": "Fixed at [-1, 1] for theta/pi, corresponding to theta in [-pi, pi], as requested. This sets the display range only; simulation values are not clamped."
+  },
+  "validation": {
+    "rhs_max_absolute_difference_on_free_nodes": 0.0,
+    "100_rk4_steps_max_absolute_difference_against_production": 0.0,
+    "grid": {
+      "N": 192,
+      "dx": 1,
+      "left": "first node fixed at 0",
+      "right": "reflected ghost = penultimate node"
+    },
+    "time_integrator": {
+      "method": "RK4",
+      "dt": 0.05
+    },
+    "regimes": {
+      "seed": {
+        "time": 100,
+        "finite": true,
+        "minimum": -3.1495372908296297,
+        "maximum": 3.149322478286425,
+        "mean_absolute_angle_over_pi": 0.9193607536092707,
+        "sign_changes": 9,
+        "dt_halving_max_absolute_difference": 1.2913075216669512e-05
+      },
+      "train": {
+        "time": 100,
+        "finite": true,
+        "minimum": -3.149359223312431,
+        "maximum": 3.149530135644215,
+        "mean_absolute_angle_over_pi": 0.8431178282563979,
+        "sign_changes": 18,
+        "dt_halving_max_absolute_difference": 1.950727003013908e-05
+      },
+      "front": {
+        "time": 100,
+        "finite": true,
+        "minimum": 0.0,
+        "maximum": 3.141592653589789,
+        "mean_absolute_angle_over_pi": 0.7679496942787419,
+        "sign_changes": 0,
+        "dt_halving_max_absolute_difference": 3.5824041762166914e-05
+      }
+    },
+    "scope": "CPU stencil and time evolution validation; browser rendering is separate."
+  },
+  "validation_script": "author-production-archive/prl-example-20261016/validate.py",
+  "created": "2026-10-16",
+  "phase_map": {
+    "data": "prl-phase-diagram.json",
+    "source": "Published Fig. 2, PRL 126, 194102 (2021), omega=1",
+    "parameter_extent": {
+      "alpha": [
+        0,
+        1.75
+      ],
+      "D": [
+        0.05,
+        2.1
+      ],
+      "omega": 1
+    },
+    "published_numerical_points": 36,
+    "analytical_boundaries": "Eqs. (4), (5), D=alpha below the critical point, and D=1/2.",
+    "green_boundary": "Recovered numerical points, without a fitted or extrapolated boundary.",
+    "additional_finite_size_points_excluded_from_plot": 15,
+    "selection": "Click or keyboard selection sets alpha and D, restores the same Gaussian seed, and runs the simulation. Both sliders track the selection.",
+    "scope": "The overlay reproduces the published Fig. 2 point and analytical data. The live chain has 192 nodes and a common Gaussian seed; finite chain length, initial conditions and observation time can affect the observed regime, particularly close to boundaries. It is not a new 192-node determination of those boundaries. Additional recovered N=600 and N=5000 pattern arrays are preserved as provenance only and are not plotted."
+  },
+  "expanded_parameter_range_validation": {
+    "parameter_range": {
+      "alpha": [
+        0,
+        1.75
+      ],
+      "D": [
+        0.05,
+        2.1
+      ],
+      "omega": 1
+    },
+    "grid": {
+      "N": 192,
+      "dx": 1,
+      "left": "theta[0]=0 at every RK stage",
+      "right": "reflected ghost = theta[N-2]"
+    },
+    "method": "CPU float64, fixed-step classical RK4",
+    "dt": 0.05,
+    "comparison_dt": 0.025,
+    "duration": 100,
+    "initial_condition": "pi*exp(-((x-10)/4)^2)",
+    "prior_validation_source": "author-production-archive/prl-example-20261016/validate.py",
+    "prior_validation_source_sha256": "516f54a34d46f718bb27935d9103d40dac244fdfae0a752d2b1b73c3a5abcfaa",
+    "trajectories": [
+      {
+        "label": "minimum_couplings",
+        "alpha": 0,
+        "D": 0.05,
+        "time": 100,
+        "finite": true,
+        "minimum": 0.0,
+        "maximum": 3.141592653589789,
+        "mean_abs_angle_over_pi": 0.40750207927723353,
+        "dt_halving_max_abs_error": 1.7293343341773237e-05,
+        "dt_halving_rms_error": 1.4300488316681077e-06
+      },
+      {
+        "label": "strong_advection_weak_diffusion",
+        "alpha": 1.75,
+        "D": 0.05,
+        "time": 100,
+        "finite": true,
+        "minimum": -3.6161943808546972,
+        "maximum": 5.166663853365494,
+        "mean_abs_angle_over_pi": 0.7239094000892698,
+        "dt_halving_max_abs_error": 0.007240550093569276,
+        "dt_halving_rms_error": 0.003306833921207067,
+        "quarter_dt": 0.0125,
+        "second_dt_halving_max_abs_error": 0.0004573650778409988,
+        "observed_refinement_error_ratio": 15.831007753693047
+      },
+      {
+        "label": "strong_diffusion_reciprocal",
+        "alpha": 0,
+        "D": 2.1,
+        "time": 100,
+        "finite": true,
+        "minimum": 0.0,
+        "maximum": 3.141592653589789,
+        "mean_abs_angle_over_pi": 0.9885086086115433,
+        "dt_halving_max_abs_error": 4.884981308350689e-15,
+        "dt_halving_rms_error": 4.425048942092579e-15
+      },
+      {
+        "label": "maximum_couplings",
+        "alpha": 1.75,
+        "D": 2.1,
+        "time": 100,
+        "finite": true,
+        "minimum": 0.0,
+        "maximum": 3.141592653588114,
+        "mean_abs_angle_over_pi": 0.4777828673301536,
+        "dt_halving_max_abs_error": 4.029628188906287e-07,
+        "dt_halving_rms_error": 6.851483790279903e-08
+      },
+      {
+        "label": "region_I",
+        "alpha": 0.2,
+        "D": 1.2,
+        "time": 100,
+        "finite": true,
+        "minimum": 0.0,
+        "maximum": 3.141592653589789,
+        "mean_abs_angle_over_pi": 0.9888871819555205,
+        "dt_halving_max_abs_error": 4.884981308350689e-15,
+        "dt_halving_rms_error": 4.42826849943537e-15
+      },
+      {
+        "label": "region_II",
+        "alpha": 1.2,
+        "D": 1.5,
+        "time": 100,
+        "finite": true,
+        "minimum": 0.0,
+        "maximum": 3.141592653589789,
+        "mean_abs_angle_over_pi": 0.8318856967282726,
+        "dt_halving_max_abs_error": 1.3417502664481162e-09,
+        "dt_halving_rms_error": 1.8383439840818434e-10
+      },
+      {
+        "label": "region_III_Fig3",
+        "alpha": 1.25,
+        "D": 1,
+        "time": 100,
+        "finite": true,
+        "minimum": -3.1357864509713713,
+        "maximum": 3.1349910631675892,
+        "mean_abs_angle_over_pi": 0.39014404815285714,
+        "dt_halving_max_abs_error": 0.00013663707174460527,
+        "dt_halving_rms_error": 2.603619492013143e-05
+      },
+      {
+        "label": "region_IV_Fig3",
+        "alpha": 0.325,
+        "D": 0.25,
+        "time": 100,
+        "finite": true,
+        "minimum": -3.1733876453333387,
+        "maximum": 3.141592653589789,
+        "mean_abs_angle_over_pi": 0.9840329310573507,
+        "dt_halving_max_abs_error": 4.6847219526413575e-06,
+        "dt_halving_rms_error": 3.74161444482305e-07
+      },
+      {
+        "label": "region_V_Fig4",
+        "alpha": 0.5,
+        "D": 0.4,
+        "time": 100,
+        "finite": true,
+        "minimum": -3.1495372908296297,
+        "maximum": 3.149322478286425,
+        "mean_abs_angle_over_pi": 0.9193607536092707,
+        "dt_halving_max_abs_error": 1.2913075216669512e-05,
+        "dt_halving_rms_error": 2.328244172036754e-06
+      },
+      {
+        "label": "localized_Fig5",
+        "alpha": 0.425,
+        "D": 0.25,
+        "time": 100,
+        "finite": true,
+        "minimum": -3.2383510448042765,
+        "maximum": 3.2133205860309326,
+        "mean_abs_angle_over_pi": 0.9661300806473053,
+        "dt_halving_max_abs_error": 9.553235338022326e-06,
+        "dt_halving_rms_error": 8.529997078803304e-07
+      },
+      {
+        "label": "critical_point",
+        "alpha": 0.5,
+        "D": 0.5,
+        "time": 100,
+        "finite": true,
+        "minimum": 0.0,
+        "maximum": 3.141592653589789,
+        "mean_abs_angle_over_pi": 0.980096998631149,
+        "dt_halving_max_abs_error": 4.440892098500626e-15,
+        "dt_halving_rms_error": 4.036749642597645e-15
+      }
+    ],
+    "corner_bulk_linear_checks": [
+      {
+        "label": "minimum_couplings",
+        "maximum_RK4_bulk_amplification": 0.9512294270833332
+      },
+      {
+        "label": "strong_advection_weak_diffusion",
+        "maximum_RK4_bulk_amplification": 0.9512294270833332
+      },
+      {
+        "label": "strong_diffusion_reciprocal",
+        "maximum_RK4_bulk_amplification": 0.9512294270833332
+      },
+      {
+        "label": "maximum_couplings",
+        "maximum_RK4_bulk_amplification": 0.9512294270833332
+      }
+    ],
+    "all_checked_trajectories_finite": true,
+    "maximum_dt_halving_absolute_error": 0.007240550093569276,
+    "maximum_dt_halving_error_over_pi": 0.0023047386761920713,
+    "scope": "Eleven bounded 192-node CPU runs spanning the four map corners, published examples, and representative regions. Bulk linear stability checked at the four corners. These are finite/stability and timestep checks; they do not recompute the phase diagram or establish all parameters, long-time behaviour, or GPU precision.",
+    "phase_diagram_scope": "The overlay reproduces the published Fig. 2 point and analytical data. The live chain has 192 nodes and a common Gaussian seed; finite chain length, initial conditions and observation time can affect the observed regime, particularly close to boundaries. It is not a new 192-node determination of those boundaries. Additional recovered N=600 and N=5000 pattern arrays are preserved as provenance only and are not plotted."
+  },
+  "expanded_parameter_range_validation_script": "author-production-archive/prl-phase-map-20261016/validate_parameter_range.py"
+}

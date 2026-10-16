@@ -1,0 +1,1277 @@
+{
+  "repository": "https://github.com/Pecnut/visual-pde",
+  "commit": "54b832c9374c7f97944e52ec40ba801deb801b7e",
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/LICENSE.md",
+      "bytes": 13227,
+      "sha256": "6844cf2a62df4bf03f04aeea7676d92e692ef048b11267614032ca77cc505c5e"
+    },
+    {
+      "path": "_layouts/sim.html",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/_layouts/sim.html",
+      "bytes": 24388,
+      "sha256": "ec64a32fcf497c1d73b09460c4bd5725c86169ed96782a5932b2aa643cab54ca"
+    },
+    {
+      "path": "assets/ani/demo.mp4",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/ani/demo.mp4",
+      "bytes": 223229,
+      "sha256": "40183505525ba18d95cdf950d8af2432eecd32b84c9d7a4c18b9c56cc10d553b"
+    },
+    {
+      "path": "assets/ani/demo.webm",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/ani/demo.webm",
+      "bytes": 166103,
+      "sha256": "2bddf16699782b42f90a59eacb4cbc928ef55942edce4ba2f3f4cae7e9e20432"
+    },
+    {
+      "path": "assets/ani/params.mp4",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/ani/params.mp4",
+      "bytes": 198078,
+      "sha256": "b2d1f5b04a715d3fda6ff44d6b03af1267ab7d19a2c6a71a21ffdc57e0447430"
+    },
+    {
+      "path": "assets/ani/params.webm",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/ani/params.webm",
+      "bytes": 290691,
+      "sha256": "2ce570b8e24da78328fd3e9f18db4fca72b9ea4485d90a76d9a48956b9855870"
+    },
+    {
+      "path": "assets/css/about.css",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/css/about.css",
+      "bytes": 1239,
+      "sha256": "6b28a5cb3927ca62967cd18c955f887885e84feb5df7e39684399e6c978ea566"
+    },
+    {
+      "path": "assets/css/create.css",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/css/create.css",
+      "bytes": 1921,
+      "sha256": "8ce1cdb9b88fa9917fe15a1e1bcaa962cc664e93b1d5da343b889560ac3ded46"
+    },
+    {
+      "path": "assets/css/custom.css",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/css/custom.css",
+      "bytes": 31218,
+      "sha256": "84d23d06ba2abcefc9178095013a3367492017228354cb260a3982f1fe5acbd6"
+    },
+    {
+      "path": "assets/css/explore.css",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/css/explore.css",
+      "bytes": 2522,
+      "sha256": "ed57761e530c32b3be46f3a7140dcb616c65703224384f8346fc89ab6c1a9b10"
+    },
+    {
+      "path": "assets/css/home.css",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/css/home.css",
+      "bytes": 6611,
+      "sha256": "285f2dd5a7c28d8cf27f1152c8f9e3123646d37cc7b2e41acdfe1628db5340ac"
+    },
+    {
+      "path": "assets/css/noscript.css",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/css/noscript.css",
+      "bytes": 322,
+      "sha256": "6c0b598cbf2121bb1b70f46cc311749d048de1911ee799ebc69c189997d09f24"
+    },
+    {
+      "path": "assets/css/shepherd.css",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/css/shepherd.css",
+      "bytes": 4822,
+      "sha256": "04cbbc751d0f0fbbff13c95b8e0af51244640602a8491f4933621d5a0d5a13c6"
+    },
+    {
+      "path": "assets/css/suggestions.css",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/css/suggestions.css",
+      "bytes": 4683,
+      "sha256": "7e6d6780e67a19de566a57f4603e44eb2590f6eaa74b74b7bacf6b9c7e8e191d"
+    },
+    {
+      "path": "assets/css/visual_stories.css",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/css/visual_stories.css",
+      "bytes": 819,
+      "sha256": "9074c5da525a3e705839a2031a74316a2e483537ee5d15ba168a0bc2a4f96f38"
+    },
+    {
+      "path": "assets/favicons/android-chrome-1200x630-original.png",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/android-chrome-1200x630-original.png",
+      "bytes": 153257,
+      "sha256": "e85b8dda0b549763cef66251d2490c758194174aa1ddac25a44af1d2e6d8f89b"
+    },
+    {
+      "path": "assets/favicons/android-chrome-1200x630.png",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/android-chrome-1200x630.png",
+      "bytes": 201229,
+      "sha256": "f3599f53720459bec24886f3c2b72c112d8f67981a258c0b502b4b886cfce16a"
+    },
+    {
+      "path": "assets/favicons/android-chrome-1200x630.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/android-chrome-1200x630.webp",
+      "bytes": 34618,
+      "sha256": "0c68c3524957a5e02c9723b82906449de4e1990f08c5d33adcd4203fb6ee82af"
+    },
+    {
+      "path": "assets/favicons/android-chrome-192x192-dark.png",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/android-chrome-192x192-dark.png",
+      "bytes": 37741,
+      "sha256": "c3b85c27b9f3af5203e27d0da0c4bcbaff7bb7de9175877551b73a79f1a60e8b"
+    },
+    {
+      "path": "assets/favicons/android-chrome-192x192-dark.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/android-chrome-192x192-dark.webp",
+      "bytes": 10744,
+      "sha256": "2fb0e8998f2360c8d524fb0f478a1d19d08bea974e272c6646abb4403f5c2a30"
+    },
+    {
+      "path": "assets/favicons/android-chrome-192x192.png",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/android-chrome-192x192.png",
+      "bytes": 33062,
+      "sha256": "065a02f772e34a538252f9f57a02e3729ffa2ea4547dc42a2a567e6551439bdf"
+    },
+    {
+      "path": "assets/favicons/android-chrome-192x192.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/android-chrome-192x192.webp",
+      "bytes": 8490,
+      "sha256": "8b7695f6b418b005d793f2cc9cba3d29ef292dbe5440f1431b08fcff6e1a8e35"
+    },
+    {
+      "path": "assets/favicons/android-chrome-512x512.png",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/android-chrome-512x512.png",
+      "bytes": 174607,
+      "sha256": "680f39c60dc78c2921ac899c8cbbccb40de72dd03dc50e05279fa18348700a42"
+    },
+    {
+      "path": "assets/favicons/android-chrome-512x512.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/android-chrome-512x512.webp",
+      "bytes": 33530,
+      "sha256": "2a364cf78123794e67e5af30348dcf7d9a010be7a2b9c0046aa1d7562345c476"
+    },
+    {
+      "path": "assets/favicons/apple-touch-icon.png",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/apple-touch-icon.png",
+      "bytes": 20643,
+      "sha256": "40ccf44c0eb37a6de03ffb5a2e0cc3164168f5ba68abc7b8fcfbe29acb9b8843"
+    },
+    {
+      "path": "assets/favicons/apple-touch-icon.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/apple-touch-icon.webp",
+      "bytes": 6224,
+      "sha256": "f544864e396a749e9595309e57348f094781b95cb9dc1355f11c2b927d79fedd"
+    },
+    {
+      "path": "assets/favicons/browserconfig.xml",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/browserconfig.xml",
+      "bytes": 263,
+      "sha256": "8b13cc71c128e5b0438c959764e03272d266522e37e44f8eb7c1a80bfe887899"
+    },
+    {
+      "path": "assets/favicons/favicon-16x16.png",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/favicon-16x16.png",
+      "bytes": 1435,
+      "sha256": "df13189f13368d474e0edb69647302ff91063d7947112575b3474173d21df8fb"
+    },
+    {
+      "path": "assets/favicons/favicon-16x16.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/favicon-16x16.webp",
+      "bytes": 734,
+      "sha256": "f3fd3ce873d7cf5b3e385cac1766cb85ccff8a1b2acf43364f55ff0881d6309c"
+    },
+    {
+      "path": "assets/favicons/favicon-32x32.png",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/favicon-32x32.png",
+      "bytes": 2826,
+      "sha256": "21576e074eca5fdb5bc5012e6b3ac5ec318b70b1c3bddafc399e7abbf0adf798"
+    },
+    {
+      "path": "assets/favicons/favicon-32x32.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/favicon-32x32.webp",
+      "bytes": 1336,
+      "sha256": "4314374ddd8a6f69a5043b971a8e5ae7f7e8fadec7ccea635a973cf4436aa799"
+    },
+    {
+      "path": "assets/favicons/favicon.ico",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/favicon.ico",
+      "bytes": 15086,
+      "sha256": "2a76d894cdab3800c7d74149478edf6f7b9d6d5ec0fa7ed9686f3a31c382798e"
+    },
+    {
+      "path": "assets/favicons/main.psd",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/main.psd",
+      "bytes": 5708189,
+      "sha256": "cd1de6336ce3ca3ce5a2d1712e792cdef44f71d7bce9b2cd8f0dc85c714fc1d9"
+    },
+    {
+      "path": "assets/favicons/main2.png",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/main2.png",
+      "bytes": 326954,
+      "sha256": "987844c883c17e762de9202ea11be78bf93084a77c69c449c061e181513b77c2"
+    },
+    {
+      "path": "assets/favicons/main2.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/main2.webp",
+      "bytes": 18856,
+      "sha256": "adf8965e8e2f51c80527bbcf2b40a84e6b6ad748a73700fa0fe6b75f83d9d34f"
+    },
+    {
+      "path": "assets/favicons/mstile-150x150.png",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/mstile-150x150.png",
+      "bytes": 19855,
+      "sha256": "2c153d76ddf5ab13af7cd6dd94bf868e8f24b8fba8300fcc4edef50f55a4a202"
+    },
+    {
+      "path": "assets/favicons/mstile-150x150.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/mstile-150x150.webp",
+      "bytes": 6006,
+      "sha256": "ec0d68d7e7c54ccd4716c57f625fdc5505ad15cb134dea5a48c0f7d7fff65d77"
+    },
+    {
+      "path": "assets/favicons/safari-pinned-tab.svg",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/safari-pinned-tab.svg",
+      "bytes": 6265,
+      "sha256": "53a329220926da4fd3633b156d73dabb9aec2276a02e68262c7c4f2378fde8ac"
+    },
+    {
+      "path": "assets/favicons/site.webmanifest",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/site.webmanifest",
+      "bytes": 478,
+      "sha256": "8a5c16558b948b5915bd42f9cfed74f29e398862ea1045c244d845fa22ea86c6"
+    },
+    {
+      "path": "assets/favicons/twitter-icon.png",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/twitter-icon.png",
+      "bytes": 29815,
+      "sha256": "e820798a020bd5e5a6ccfac5af1117ca34f4152195f31052c3bdc4b00c63a03f"
+    },
+    {
+      "path": "assets/favicons/twitter-icon.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/favicons/twitter-icon.webp",
+      "bytes": 8120,
+      "sha256": "f470242f222b8ccd33655b289c14f48877a463bed77f34f77d8beea5014ac312"
+    },
+    {
+      "path": "assets/fontawesome/css/fontawesome.min.css",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/fontawesome/css/fontawesome.min.css",
+      "bytes": 71623,
+      "sha256": "405bfb2a5312e363b88650a68ed90b6c06c41d5cfa3cbf5c68251cafafb3c078"
+    },
+    {
+      "path": "assets/fontawesome/css/solid.min.css",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/fontawesome/css/solid.min.css",
+      "bytes": 619,
+      "sha256": "01219b97103029774a3e8cb1b22803490beec1df828895dfd9c5fd0d4798da25"
+    },
+    {
+      "path": "assets/fontawesome/webfonts/fa-regular-400.woff2",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/fontawesome/webfonts/fa-regular-400.woff2",
+      "bytes": 19512,
+      "sha256": "f4722d10b9e1b41eefe3b51a026312ee1970edb7782f94b0080d3d475945734c"
+    },
+    {
+      "path": "assets/fontawesome/webfonts/fa-solid-900.woff2",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/fontawesome/webfonts/fa-solid-900.woff2",
+      "bytes": 119488,
+      "sha256": "24e5fae26b41c08b2df81c91669f5aaae71d81a84a4713fc56b5c621b78dd456"
+    },
+    {
+      "path": "assets/images/FHNTuringWave.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/images/FHNTuringWave.webp",
+      "bytes": 43540,
+      "sha256": "d14d5f7164d1c7bba5d98c69fb83d4a8880318a084562980f1b456e03fc789d9"
+    },
+    {
+      "path": "assets/images/complexGinzburgLandau.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/images/complexGinzburgLandau.webp",
+      "bytes": 34492,
+      "sha256": "a6fbced95a722eed0148a0a2ec8d6104ea4909335daf9aa2bf50e89b0b4ab82b"
+    },
+    {
+      "path": "assets/images/demo.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/images/demo.webp",
+      "bytes": 2166,
+      "sha256": "bbbda746e66b5132b5393782369e8f42c3df190f76bb99446f6a65e7ba744400"
+    },
+    {
+      "path": "assets/images/function-button-dark.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/images/function-button-dark.webp",
+      "bytes": 3196,
+      "sha256": "1e0442596e1a932d315b9133456ab8ef9e14ea3f4462036a419669e735306957"
+    },
+    {
+      "path": "assets/images/function-button-hover-dark.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/images/function-button-hover-dark.webp",
+      "bytes": 2226,
+      "sha256": "616a5efcfa1d79336e436b430341f2a81db29b720607403a28dbfcb412d2ef28"
+    },
+    {
+      "path": "assets/images/function-button-hover.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/images/function-button-hover.webp",
+      "bytes": 3342,
+      "sha256": "3b1d7b39c321054bf663e7390136f5bd58085b10b38ce3c6a32f1832413bc57c"
+    },
+    {
+      "path": "assets/images/function-button.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/images/function-button.webp",
+      "bytes": 2816,
+      "sha256": "9b1ad2f4c81119a8e62e0e2265f8eecaef0fd25b2bf2654fbc86ef2266d49f55"
+    },
+    {
+      "path": "assets/images/logo-light.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/images/logo-light.webp",
+      "bytes": 52508,
+      "sha256": "9fcf3216d4d8486f8ebe6f1b74f409e4fe9bfd9c5689227f73f32b0e5a4eae3c"
+    },
+    {
+      "path": "assets/images/logo-loading.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/images/logo-loading.webp",
+      "bytes": 66372,
+      "sha256": "b5e8844f531780db41d05b0b7506a52a7e2c67df4bd5e7381a37e1b25713248b"
+    },
+    {
+      "path": "assets/images/logo-splash.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/images/logo-splash.webp",
+      "bytes": 24580,
+      "sha256": "4a90702fcc2f20debdff849cad010c401066886917cc78476446092608d29307"
+    },
+    {
+      "path": "assets/images/midnight_soliton.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/images/midnight_soliton.webp",
+      "bytes": 9484,
+      "sha256": "ead87013abc56cd18c61a9a7f8e3a4840235bb323db42feba7c6c837a0fecc2b"
+    },
+    {
+      "path": "assets/js/closest-match.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/closest-match.js",
+      "bytes": 1918,
+      "sha256": "683a3df89c86f1917b975fcacf2e246bbf8ff77ac33ba7bc1d2eec402c0c14b6"
+    },
+    {
+      "path": "assets/js/dark_mode.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/dark_mode.js",
+      "bytes": 2068,
+      "sha256": "fcc0b580b1b81ee049397ecb36bdf52f9655d454681dcad7e3b24316cfcf40a1"
+    },
+    {
+      "path": "assets/js/jQuery.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/jQuery.js",
+      "bytes": 87461,
+      "sha256": "8f764efbb2cdb303e3019325d811225ead27d656f8b40390de427db1415dc56a"
+    },
+    {
+      "path": "assets/js/mathjax/es5/a11y/assistive-mml.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/a11y/assistive-mml.js",
+      "bytes": 6460,
+      "sha256": "5b8414e36cd63d154b90beab67e5e3399c7439aff97f4b556761224f8176f657"
+    },
+    {
+      "path": "assets/js/mathjax/es5/a11y/complexity.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/a11y/complexity.js",
+      "bytes": 18034,
+      "sha256": "cc05edc9c9ead1b972410d0e7c1b8611c565a87fe513822bce94268954d03463"
+    },
+    {
+      "path": "assets/js/mathjax/es5/a11y/explorer.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/a11y/explorer.js",
+      "bytes": 36348,
+      "sha256": "8729b09b7f23927c724a0a502b04acb2df0943109bb75602c26db68cb87643ac"
+    },
+    {
+      "path": "assets/js/mathjax/es5/a11y/semantic-enrich.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/a11y/semantic-enrich.js",
+      "bytes": 8084,
+      "sha256": "366e94cbf3ca49386413d64a910ecf5db018449fbed03275f93d6f2e81d5c596"
+    },
+    {
+      "path": "assets/js/mathjax/es5/a11y/sre.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/a11y/sre.js",
+      "bytes": 337064,
+      "sha256": "a41dc487037b75d6dae75677e36fe2f03d1d2684f232d96f0422a11b35051660"
+    },
+    {
+      "path": "assets/js/mathjax/es5/adaptors/liteDOM.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/adaptors/liteDOM.js",
+      "bytes": 22827,
+      "sha256": "30e7d3f231e5c86b0c6ecdc283e5b6f2a46d6ddee140745a050bd5ccfe62b3ef"
+    },
+    {
+      "path": "assets/js/mathjax/es5/core.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/core.js",
+      "bytes": 218533,
+      "sha256": "44d9c29f77d89537e024d165e2c0d7e981a98d75ed53b6c236fac899ed631abb"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/asciimath.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/asciimath.js",
+      "bytes": 107781,
+      "sha256": "19b136e45ed82e690a9ff99a7392e713df3b4538a237534a4bcba17dc25ae847"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/mml.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/mml.js",
+      "bytes": 14583,
+      "sha256": "65c93277d980860f34341112c59520b9d2745cd46280d9c2fe036718b826624d"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/mml/entities.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/mml/entities.js",
+      "bytes": 51126,
+      "sha256": "90ef0fcf002a37cb6cb3d1f1148cea4bfcbe77f9b298262b260c872a066ef974"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/mml/extensions/mml3.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/mml/extensions/mml3.js",
+      "bytes": 28862,
+      "sha256": "17e8f1a2e6fcf5fe13769318f2a0ee646bd60b64185e4401207165f068e61ff7"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/mml/extensions/mml3.sef.json",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/mml/extensions/mml3.sef.json",
+      "bytes": 199492,
+      "sha256": "38acbd5de4dd0260eaa657ac35baa6ccc26dacc3cec8a1085612f0f577447663"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex-base.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex-base.js",
+      "bytes": 135594,
+      "sha256": "8479dec6af20d01ecca8f9785609c6d80ff9e3fc2ff4e038400632e78cec6c51"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex-full.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex-full.js",
+      "bytes": 345624,
+      "sha256": "de76b151355304bde8217d8056264d9c2bec2f47acb7ffd4d142cbe14f5b0035"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex.js",
+      "bytes": 179888,
+      "sha256": "fa6524c5b16c20bed3f040c9833e88c7b8ab25ffe988af9cda8395016a0b643c"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/action.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/action.js",
+      "bytes": 2611,
+      "sha256": "37b44965893dafb424811f3a78718aba2cfd450ce2a9344b53a5a7e24f2874a7"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/all-packages.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/all-packages.js",
+      "bytes": 215178,
+      "sha256": "b44661fc134a5b53ad3ef5bf4d587e9b412e97421cf33e0dab2095ea0e8a3491"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/ams.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/ams.js",
+      "bytes": 29459,
+      "sha256": "624d59b8b8585d3d69a8106b87bac62f8a2495b6caea7906a258ce1f15ff1ea4"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/amscd.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/amscd.js",
+      "bytes": 6769,
+      "sha256": "7dc7256ebc5822379cdf9f504559309d97c5f26e09e2150d25dd46e35a6acf94"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/autoload.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/autoload.js",
+      "bytes": 6357,
+      "sha256": "7656bc471cb75a43167f6bdeb284c95f323317893d26df4ceaa676d409ac9dbf"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/bbox.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/bbox.js",
+      "bytes": 3006,
+      "sha256": "73d208a3425ed27dea7ed61f5984b43accfba8949bad7077d3eac47e668ba764"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/boldsymbol.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/boldsymbol.js",
+      "bytes": 4056,
+      "sha256": "d6771fee0772db2657796c8d0e20e1878bb3237f6d3ed1e828e1834a4ff743ca"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/braket.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/braket.js",
+      "bytes": 6729,
+      "sha256": "2abb032ca0eaff9fb2322a28b5d14ba058e7934d3e56974c55f574059e907a4c"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/bussproofs.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/bussproofs.js",
+      "bytes": 18344,
+      "sha256": "47c46e011949f0700ed02698b1a7fc243cc0dfa9529e49935e45ee5e09299bda"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/cancel.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/cancel.js",
+      "bytes": 3326,
+      "sha256": "0d263ecf2671d1cc13135b8b4afcdca4d40151a9aea51b69402e68adde4cf8c9"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/cases.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/cases.js",
+      "bytes": 7064,
+      "sha256": "9c11e0644dabdb5adf9065adef7f6224340eaecb96e48a7ce9a27de3c7056f3c"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/centernot.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/centernot.js",
+      "bytes": 3477,
+      "sha256": "a1e4be1e20d190a553c74796054335f5f7790414deb966cdc8a78e941a28a351"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/color.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/color.js",
+      "bytes": 8627,
+      "sha256": "7fdc8f7cda1630f35ccd579379ba04add9dec50c66cebbc05a4b129027b32435"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/colortbl.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/colortbl.js",
+      "bytes": 5392,
+      "sha256": "d9c0e39634f43f0e29c6d6e82a3624e09f9835747fae5ba56156660fd4aab79b"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/colorv2.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/colorv2.js",
+      "bytes": 1998,
+      "sha256": "30c09ca19b5d778c1718c47ee3d76b0a301dd2040f11f0b4ae3b2d59d67ffe21"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/configmacros.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/configmacros.js",
+      "bytes": 4676,
+      "sha256": "a6d4604cbd3a7e7b9691eb108291ddd0093b9750355357478c6b637aad0d5419"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/empheq.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/empheq.js",
+      "bytes": 11100,
+      "sha256": "f425b835aeb4e4373b6176b622590d72692f1a85f05018e1035fbfcfc3be1842"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/enclose.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/enclose.js",
+      "bytes": 2387,
+      "sha256": "8804f756f369946919c388f587f80cf2d1fd9151f76ed37570d01af8d7fb3f4c"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/extpfeil.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/extpfeil.js",
+      "bytes": 3451,
+      "sha256": "d8d5ecd75abc4306a6d589442dfa66a4345dee1288347591bddaf19551388163"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/gensymb.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/gensymb.js",
+      "bytes": 2104,
+      "sha256": "9f55af256604b89a7980b9f903c6f33ce3c2d0e279fd347b9a433fe4c58de794"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/html.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/html.js",
+      "bytes": 2969,
+      "sha256": "e3647c848f26ad228d07043f1e63c56a646da9d20a6c0f180a4067fa9e10facc"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/mathtools.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/mathtools.js",
+      "bytes": 31845,
+      "sha256": "04272d69a0b64783cd5b66820d6f8220ee510409d0b12c38626404be9ed9689c"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/mhchem.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/mhchem.js",
+      "bytes": 38270,
+      "sha256": "aec2e1e1c423129cf3d2fe86980642335127d1161734ffe47dd99ed676038627"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/newcommand.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/newcommand.js",
+      "bytes": 11768,
+      "sha256": "a41669a4ae924ab83cbc3d08f95ae90490a33cd649ed865e83675011b8708ab9"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/noerrors.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/noerrors.js",
+      "bytes": 1226,
+      "sha256": "9317a33b00e114e679bb3cf07df06102342131412a3daced25b733da334f2ccd"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/noundefined.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/noundefined.js",
+      "bytes": 1852,
+      "sha256": "b90ecf838a6f5363b260a4dd4e939812abaf062f91234fe20fd63d1c7e88a43f"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/physics.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/physics.js",
+      "bytes": 24029,
+      "sha256": "83d5ad43ea478baf855e0ef9456d63d2d735d10c78ab7544019e0cb0b8083a83"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/require.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/require.js",
+      "bytes": 6286,
+      "sha256": "d508f823c2cf39509bdd088f6dd17fde20b481a8b1d702aa24061a00f38006c3"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/setoptions.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/setoptions.js",
+      "bytes": 5549,
+      "sha256": "a259b86c9f49fea08abbc05bf4e5ed510e65870b9d7d127404e8486493b8ad40"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/tagformat.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/tagformat.js",
+      "bytes": 2864,
+      "sha256": "a1407f0ba6abddf53ed3048aaeec7d5290dfa213878181679f4a62c604515784"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/textcomp.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/textcomp.js",
+      "bytes": 6808,
+      "sha256": "6eaa4c938145a6ace042806b2d0c710c8d4d806386c97e9d0ec0c6d6e5fc30cf"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/textmacros.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/textmacros.js",
+      "bytes": 16138,
+      "sha256": "cd783f048f64f6a3750d716af0e10ed2f6539cd181dacf1204e323e2e41bd640"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/unicode.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/unicode.js",
+      "bytes": 3450,
+      "sha256": "903e7d0d11d5d639eb13931fd3da78d49bbf9c59b57e82a945da9fb7b710137d"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/upgreek.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/upgreek.js",
+      "bytes": 2676,
+      "sha256": "4335d722671b77186d6490e326adad5f727ed2db954deafece2d10803cb651a1"
+    },
+    {
+      "path": "assets/js/mathjax/es5/input/tex/extensions/verb.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/input/tex/extensions/verb.js",
+      "bytes": 2562,
+      "sha256": "fdaface3c13d4f2a9e3013bf986fca04d63175c69eec99b17705f006a6528dc7"
+    },
+    {
+      "path": "assets/js/mathjax/es5/latest.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/latest.js",
+      "bytes": 5090,
+      "sha256": "a6faa64b9e19bfd3ee6bc592136ce9faa06ca4d0c795eba614b1a7eea8936a3d"
+    },
+    {
+      "path": "assets/js/mathjax/es5/loader.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/loader.js",
+      "bytes": 18439,
+      "sha256": "a413bc18c77eda7b5d29d44c4d3311de78742cb5c9751b70e29b013eacfbb56f"
+    },
+    {
+      "path": "assets/js/mathjax/es5/mml-chtml.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/mml-chtml.js",
+      "bytes": 997633,
+      "sha256": "dec37b26b9dc44ae410cc6f812e3501eb92df734ad3f6516ff023f6100cd67b8"
+    },
+    {
+      "path": "assets/js/mathjax/es5/mml-svg.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/mml-svg.js",
+      "bytes": 1945224,
+      "sha256": "f6db1c8582ca54695c5f2c8d9f0f99d33102c2f20b1c80a49ab1ac605e030cdc"
+    },
+    {
+      "path": "assets/js/mathjax/es5/node-main.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/node-main.js",
+      "bytes": 265880,
+      "sha256": "a3e6f8f69fb7a786f4b4d08f0f17781381996ec2c278a0f406f9e812ffa809b2"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml.js",
+      "bytes": 221887,
+      "sha256": "287022a5672cb02108104df6a0c4d1ae219cc9d9e53e06ccb8c023c47ff867ce"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/tex.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/tex.js",
+      "bytes": 104800,
+      "sha256": "b525b71e41a7fdb124ef6a2b44d5250cb7fc2f56d7e73494ad03d090d0e4f28a"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff",
+      "bytes": 40808,
+      "sha256": "3de784d07b9fa8f104c10928a878ee879cf3305cae5195cba663c9c2bb0195eb"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff",
+      "bytes": 9908,
+      "sha256": "af04542b29eaac04550a140c5f1760a649783989426f2540855bf4157819367d"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff",
+      "bytes": 9600,
+      "sha256": "26683bf201fb258a2237d9754616de9d4ecf4cc1cd39dd1902476df7d75f1d16"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff",
+      "bytes": 22340,
+      "sha256": "721921bab0d001ebff0206c24cb5de6ca136467bf1843a7aa32030ba061d1e92"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff",
+      "bytes": 21480,
+      "sha256": "870673df72e70f87c91a5a317d558c2c3b54392264ad79bbadc6d424ae8765fe"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff",
+      "bytes": 34464,
+      "sha256": "88b98cad3688915e50da55553ff6ad185e0dce134b47f176e91b100f8a9b175c"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff",
+      "bytes": 20832,
+      "sha256": "355254db9ca10a09a3b5f0929d74eb4670f44fbe864c07526a06213e0a0caf6c"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
+      "bytes": 34160,
+      "sha256": "1cb1c39ea642f26a4dfed230b4aea1c3c218689421f6e9c0a7c1811693c4fa07"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff",
+      "bytes": 19776,
+      "sha256": "8ea8dbb1b02e6f730f55b4cb5d413b785b9f5c39807d0a0fa7da206a0824a457"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff",
+      "bytes": 19360,
+      "sha256": "a009bea404f7a500ded48f8b9ad9cf16e12504b3195dd9e25975289b8256b0f0"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Math-Regular.woff",
+      "bytes": 19288,
+      "sha256": "c01d3321e89b403c4b811aa153c4e618eda3421f92d8a072a02c8d190782a191"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff",
+      "bytes": 15944,
+      "sha256": "32792104b5ef69eded905b6d1598ed05d8087684d38e7a94d52e3c38ba16f47e"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff",
+      "bytes": 14628,
+      "sha256": "fc6ddf5df402b263cfb158aed8e89972542c34b719cd87b1db30461985f7bd5b"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff",
+      "bytes": 12660,
+      "sha256": "b418136e3b384baaadecb70bd3c48a8da9825210130b2897db808c44efc883cb"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff",
+      "bytes": 11852,
+      "sha256": "af96f67d7accf5fd2a4a682d0b9f8b339f8ea6fe34c310c1694c8ba7f6ddc96f"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff",
+      "bytes": 5792,
+      "sha256": "c49810b53ecc0d87d8028762c518924197dd9d3f905b08f99ea241301085b9cb"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff",
+      "bytes": 5464,
+      "sha256": "30e889b58cbc51adfbb038ab1a96dc4025aa3542a3cff7712fc55ece510675e2"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff",
+      "bytes": 3244,
+      "sha256": "5cda41563a095bd70c78e2dda13d0f8cb922c71c90fffd0a0044c65173a66e83"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff",
+      "bytes": 5148,
+      "sha256": "3bc6ecaae7ecf6f8d7f8ea07bddbaca8601e2cb6e89d6aef58e78d9f6d8a398f"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff",
+      "bytes": 17604,
+      "sha256": "c56da8d69f1a0208b8e0703656c3264b6dd748bd452524c82b0385b60f6a68c1"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff",
+      "bytes": 1116,
+      "sha256": "36e0d72d8a7afc696a3e7a5c7369807634640de9b02257bca447bdf126221a27"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff",
+      "bytes": 1136,
+      "sha256": "72bc573386dd1d48c5bbd286302ca9e3400c5eb0f298e7cfbf945b9d08fc688f"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff",
+      "bytes": 1368,
+      "sha256": "481e39042508ae313a60618af1e37146ab93e9324c98e4c78b8f17fe55d41e0b"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/svg.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/svg.js",
+      "bytes": 208515,
+      "sha256": "6fdee599b240851fd27b31017e1a18802d99743ac4fae8204998997176647609"
+    },
+    {
+      "path": "assets/js/mathjax/es5/output/svg/fonts/tex.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/output/svg/fonts/tex.js",
+      "bytes": 1065875,
+      "sha256": "6afb8e7f4f7f19255c4b111f4a00c06716b70ea9b977516127c054e7799d2da4"
+    },
+    {
+      "path": "assets/js/mathjax/es5/sre/mathmaps/base.json",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/sre/mathmaps/base.json",
+      "bytes": 115025,
+      "sha256": "83311887b069476a6a4d0c6afe7f8e55075c85b44b029588739c0d835fc912b8"
+    },
+    {
+      "path": "assets/js/mathjax/es5/sre/mathmaps/ca.json",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/sre/mathmaps/ca.json",
+      "bytes": 296176,
+      "sha256": "dd70d958b0badd13924f4ce6678492bfccb75c4fb58a323fa5a8fbc1ec3f4677"
+    },
+    {
+      "path": "assets/js/mathjax/es5/sre/mathmaps/da.json",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/sre/mathmaps/da.json",
+      "bytes": 294956,
+      "sha256": "876276389afe78b8870d861a57c98d0c6c073d6812cc429024f369a10eb84361"
+    },
+    {
+      "path": "assets/js/mathjax/es5/sre/mathmaps/de.json",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/sre/mathmaps/de.json",
+      "bytes": 329805,
+      "sha256": "89e72d1b94ea8e0b781cd341bb2fc66d8d5a99dc5fb7ac04684d3e31c600d60e"
+    },
+    {
+      "path": "assets/js/mathjax/es5/sre/mathmaps/en.json",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/sre/mathmaps/en.json",
+      "bytes": 409173,
+      "sha256": "19d9b309dc0d25d2bde2d3130bd3772b6d7c3f8316ebbd85306bef55ac89b2a7"
+    },
+    {
+      "path": "assets/js/mathjax/es5/sre/mathmaps/es.json",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/sre/mathmaps/es.json",
+      "bytes": 298556,
+      "sha256": "57421b588b6a809008bd0a0c527c6cd1b3d57431949e528cdb5a95cf66a00fa8"
+    },
+    {
+      "path": "assets/js/mathjax/es5/sre/mathmaps/fr.json",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/sre/mathmaps/fr.json",
+      "bytes": 322917,
+      "sha256": "ebae6c18e88e0c64a422a64e5862a4cd0d58f357237f13538ccbd9cff26f748d"
+    },
+    {
+      "path": "assets/js/mathjax/es5/sre/mathmaps/hi.json",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/sre/mathmaps/hi.json",
+      "bytes": 440548,
+      "sha256": "6ef6f35d83590cc0c10de8dd3367f91f2da6546177033005aef102071030acff"
+    },
+    {
+      "path": "assets/js/mathjax/es5/sre/mathmaps/it.json",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/sre/mathmaps/it.json",
+      "bytes": 328235,
+      "sha256": "b1c3449d989bfd16b30fa36137b7f52f2d484826deb8b2fb404421511911a040"
+    },
+    {
+      "path": "assets/js/mathjax/es5/sre/mathmaps/nb.json",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/sre/mathmaps/nb.json",
+      "bytes": 307312,
+      "sha256": "6713463f2f1f781d8cdf13c97377e5687cb8e2e9060ccc03d49e04c15a1059be"
+    },
+    {
+      "path": "assets/js/mathjax/es5/sre/mathmaps/nemeth.json",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/sre/mathmaps/nemeth.json",
+      "bytes": 224008,
+      "sha256": "35f253e59912d2ec3bd08be4271462fc58904d5da74ea368e073c2a593eb9516"
+    },
+    {
+      "path": "assets/js/mathjax/es5/sre/mathmaps/nn.json",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/sre/mathmaps/nn.json",
+      "bytes": 308992,
+      "sha256": "b6d15b62081965f9ed07ae6b6c1afb1bc2a1476cf62392d302ae8b6decf69d60"
+    },
+    {
+      "path": "assets/js/mathjax/es5/sre/mathmaps/sv.json",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/sre/mathmaps/sv.json",
+      "bytes": 317841,
+      "sha256": "31228993e7deec281c2c28f28bcdae09209125b2bc496c899e58be00bef9e2eb"
+    },
+    {
+      "path": "assets/js/mathjax/es5/startup.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/startup.js",
+      "bytes": 29566,
+      "sha256": "84f4ec49041b12a6dadc5d1689babc80f417435cfcbd890ec712e374152bbb88"
+    },
+    {
+      "path": "assets/js/mathjax/es5/tex-chtml-full-speech.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/tex-chtml-full-speech.js",
+      "bytes": 2091263,
+      "sha256": "e5d8c86cabdaef3ebf0108b6338c420c021f19c4ed7e3629aba266202f5279a7"
+    },
+    {
+      "path": "assets/js/mathjax/es5/tex-chtml-full.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/tex-chtml-full.js",
+      "bytes": 1327522,
+      "sha256": "91b005503c5d1f0958bf4d73ada1a3be33596b2c4ab5da22277f1b0d3149b5a4"
+    },
+    {
+      "path": "assets/js/mathjax/es5/tex-chtml.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/tex-chtml.js",
+      "bytes": 1160989,
+      "sha256": "0a6ded5abbce13331658dd239f34382abd06492c74b71b61e8caa8112ec55fa5"
+    },
+    {
+      "path": "assets/js/mathjax/es5/tex-mml-chtml.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/tex-mml-chtml.js",
+      "bytes": 1173007,
+      "sha256": "300480069078b5892d2363a2b65e2dfbbf30fe5c80f83edbfecf4610fd093862"
+    },
+    {
+      "path": "assets/js/mathjax/es5/tex-mml-svg.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/tex-mml-svg.js",
+      "bytes": 2120598,
+      "sha256": "1f17a7ed95ff4a4b27d16bf0fb5f80b915686ee8673e82983a2876ecf8cb9fae"
+    },
+    {
+      "path": "assets/js/mathjax/es5/tex-svg-full.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/tex-svg-full.js",
+      "bytes": 2275113,
+      "sha256": "a4354ff94fd868aea0cc6eaaa79a57fda0588646fc46ee3700a349ee0a11cbe6"
+    },
+    {
+      "path": "assets/js/mathjax/es5/tex-svg.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/tex-svg.js",
+      "bytes": 2108580,
+      "sha256": "d4295dc33744836935c1399feece5159577b34c5c8ffb9f1c6324cd82e03a882"
+    },
+    {
+      "path": "assets/js/mathjax/es5/ui/lazy.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/ui/lazy.js",
+      "bytes": 11148,
+      "sha256": "64cb5353fc9766b7609a14806db030fe63ee21f76b31fa44d2fe3145e712247e"
+    },
+    {
+      "path": "assets/js/mathjax/es5/ui/menu.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/ui/menu.js",
+      "bytes": 425918,
+      "sha256": "a8f65a130574a979aa67ac22dd618346acfb77ffa97cde112498b097bcf1970d"
+    },
+    {
+      "path": "assets/js/mathjax/es5/ui/safe.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/mathjax/es5/ui/safe.js",
+      "bytes": 11189,
+      "sha256": "9fef48d868277a8bc1852f7ba796b33ead812d38916a7131b0a29ea48961a6a4"
+    },
+    {
+      "path": "assets/js/qrcode.min.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/qrcode.min.js",
+      "bytes": 19512,
+      "sha256": "92101f35de8a362ac2425a8716f615dfd5320b4636e2e790014d501d0f12593e"
+    },
+    {
+      "path": "assets/js/shepherd.min.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/assets/js/shepherd.min.js",
+      "bytes": 45320,
+      "sha256": "758f8dc91dfd96110053d520b7a21f9b5207fb8956f69c9132dcd822043cf55a"
+    },
+    {
+      "path": "sim/css/main.css",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/css/main.css",
+      "bytes": 50204,
+      "sha256": "cf2b20e4565f3f95cc771bfe78bdeb32cc9f81cd4de0caa7fb50ee67d28ec85c"
+    },
+    {
+      "path": "sim/images/Alan.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/images/Alan.webp",
+      "bytes": 14998,
+      "sha256": "7df06c9eaedd65cc3fddb9cbd5f3126a314c77340d9a54790b7d73549007cd76"
+    },
+    {
+      "path": "sim/images/Sofya.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/images/Sofya.webp",
+      "bytes": 17900,
+      "sha256": "59aa8060ef5504a45296b32559b940bc3065761ca26d8e10eec08b4c55351b02"
+    },
+    {
+      "path": "sim/images/cursor-crosshairs.svg",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/images/cursor-crosshairs.svg",
+      "bytes": 871,
+      "sha256": "cfa6cf216b172b1b73eacd0617055ceb57374d70c44ae8442d005b96aab30a98"
+    },
+    {
+      "path": "sim/images/vpde-logotype-light.webp",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/images/vpde-logotype-light.webp",
+      "bytes": 4796,
+      "sha256": "5de67abffea7f9a629214d41af11fbdec5c2ce49aaf6b30c9d838973ca4b0e22"
+    },
+    {
+      "path": "sim/scripts/OrbitControls.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/OrbitControls.js",
+      "bytes": 24946,
+      "sha256": "d9fec9398c1d6f02b8b69d84bce010f2799e7fbdf0437acd6425f4e17dc60621"
+    },
+    {
+      "path": "sim/scripts/RD/TEX.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/RD/TEX.js",
+      "bytes": 15381,
+      "sha256": "9d7cc0ed4ea2f21777be55b7891393701a20e1c4f76b12103861c14e76f7501c"
+    },
+    {
+      "path": "sim/scripts/RD/clear_shader.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/RD/clear_shader.js",
+      "bytes": 2284,
+      "sha256": "48122d3e5a9f5f197a883b1e611c606884b55845a9a77d20658fc738f41b3471"
+    },
+    {
+      "path": "sim/scripts/RD/display_shaders.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/RD/display_shaders.js",
+      "bytes": 8748,
+      "sha256": "44d0be9806ee41f714c9db5f89e5a495c494545f8a4bb1ef65f0c9b431221769"
+    },
+    {
+      "path": "sim/scripts/RD/drawing_shaders.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/RD/drawing_shaders.js",
+      "bytes": 5475,
+      "sha256": "411e2886b405921afae2a4a5c6e435b1850baf506678d7fc12ce1fdd3dea10e4"
+    },
+    {
+      "path": "sim/scripts/RD/main.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/RD/main.js",
+      "bytes": 504988,
+      "sha256": "a33993b98920eb7fb92e69c9e7fd91a2e1d25150cce82d93b1c6f01e4630b6bc"
+    },
+    {
+      "path": "sim/scripts/RD/minify_preset.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/RD/minify_preset.js",
+      "bytes": 6588,
+      "sha256": "6973288f068a468fca1c58fe95f69c827fec4d5a4684aef7643103eaa55fedb6"
+    },
+    {
+      "path": "sim/scripts/RD/post_shaders.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/RD/post_shaders.js",
+      "bytes": 15238,
+      "sha256": "54f486b54266db76434d6660315ee0d4fb9b5115fd6b271d46aad4ebf347c805"
+    },
+    {
+      "path": "sim/scripts/RD/presets.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/RD/presets.js",
+      "bytes": 218352,
+      "sha256": "feea3e61443ad064be5ce1439ab391e256490854a2e1f7126b5d24214984d7b1"
+    },
+    {
+      "path": "sim/scripts/RD/simulation_shaders.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/RD/simulation_shaders.js",
+      "bytes": 59389,
+      "sha256": "40dd888c983cc13d32319b5e823812ef6824327e50608753d0622c142b70a11e"
+    },
+    {
+      "path": "sim/scripts/RD/species_config.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/RD/species_config.js",
+      "bytes": 3968,
+      "sha256": "10fc793871b3355effb1ec1491d156a235208066b5ee9c323c0a2ebb6b8cf6f7"
+    },
+    {
+      "path": "sim/scripts/RD/tours.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/RD/tours.js",
+      "bytes": 6982,
+      "sha256": "ef8898d35a44f0900e60933c8a92813ed3d696acaddf5cbae5f465dac60fc091"
+    },
+    {
+      "path": "sim/scripts/RD/url_codec.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/RD/url_codec.js",
+      "bytes": 4933,
+      "sha256": "ef6fd4dc75ab06547ea9e8574568ce47edcd760721b7f753300f402651772468"
+    },
+    {
+      "path": "sim/scripts/RD/url_codec_v1_data.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/RD/url_codec_v1_data.js",
+      "bytes": 39645,
+      "sha256": "2a8e3278cbc43de5d30be25f47ba7815a8618610b3ca0be3370cd96f06765edf"
+    },
+    {
+      "path": "sim/scripts/RD/webpack.config.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/RD/webpack.config.js",
+      "bytes": 282,
+      "sha256": "2f51a0321caff02d274a12c9b5da47c27f3dcc6b08ecba005df8758d226d30d4"
+    },
+    {
+      "path": "sim/scripts/auxiliary_GLSL_funs.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/auxiliary_GLSL_funs.js",
+      "bytes": 1253,
+      "sha256": "6264d6c9598001bb9ca2589865b9b45ce0252a88f84f696bf0b9ad43a7bc08b9"
+    },
+    {
+      "path": "sim/scripts/charts.umd.min.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/charts.umd.min.js",
+      "bytes": 200807,
+      "sha256": "81ffafe13c37e1b25793b020d446f4d9739b949dadb7f9f79d709a0cad781c2f"
+    },
+    {
+      "path": "sim/scripts/colourmaps.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/colourmaps.js",
+      "bytes": 7678,
+      "sha256": "906ace09190487a5ba579c9c2e72dbed66fd10ba42d45b2e1b1c1aae31174129"
+    },
+    {
+      "path": "sim/scripts/copy_shader.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/copy_shader.js",
+      "bytes": 999,
+      "sha256": "851c3dcb19d2f5331143675384d865f5777f5155bacad42c1c5eda9b9011a08b"
+    },
+    {
+      "path": "sim/scripts/dat.gui.min.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/dat.gui.min.js",
+      "bytes": 51423,
+      "sha256": "b622c3dced220f28feb255171d1f97749bb050fe1641d2328c8255be154fd2fb"
+    },
+    {
+      "path": "sim/scripts/dat_gui_mods.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/dat_gui_mods.js",
+      "bytes": 1161,
+      "sha256": "35f2035da968d2775cece83e95ae4b0e69e0025e11f0264eedbb9def9ff16267"
+    },
+    {
+      "path": "sim/scripts/expr-eval.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/expr-eval.js",
+      "bytes": 25275,
+      "sha256": "0925c60525c91fc3daaa365d31599265e1c6a3c360afafab7a764b4246e9e87c"
+    },
+    {
+      "path": "sim/scripts/fflate.min.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/fflate.min.js",
+      "bytes": 8449,
+      "sha256": "e703c42b60f94d830048290730cd65aaab7b1404f6cb0aac41f4dfd6d77dacb7"
+    },
+    {
+      "path": "sim/scripts/fitty.min.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/fitty.min.js",
+      "bytes": 3854,
+      "sha256": "f5be15b599336b8f56857ca53fdbc4af7dfba2378d31fc920c028f8a95716b5d"
+    },
+    {
+      "path": "sim/scripts/generic_shaders.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/generic_shaders.js",
+      "bytes": 249,
+      "sha256": "cdf739f482eaccca89163a82a34ae8bdec5b576d224e06c01f7f4972b1014935"
+    },
+    {
+      "path": "sim/scripts/lines/Line2.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/lines/Line2.js",
+      "bytes": 432,
+      "sha256": "aec4ecfb8c17cfa51d82417d48146577d438ce55dc6925552729499251ea855f"
+    },
+    {
+      "path": "sim/scripts/lines/LineGeometry.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/lines/LineGeometry.js",
+      "bytes": 1457,
+      "sha256": "0a282ed4cb0872843df48f27b73ce5d8403e84f22b221caa07b6bc2f9b97fce1"
+    },
+    {
+      "path": "sim/scripts/lines/LineMaterial.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/lines/LineMaterial.js",
+      "bytes": 12438,
+      "sha256": "d5ddfcbb117a329c2252c9534c78a688fc8246c56ef7812a783d4def53a2cfc6"
+    },
+    {
+      "path": "sim/scripts/lines/LineSegments2.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/lines/LineSegments2.js",
+      "bytes": 9346,
+      "sha256": "f86aaee7a599fa768fda1838b266d5ce001073b9af1b0db4ced6c880f37a820c"
+    },
+    {
+      "path": "sim/scripts/lines/LineSegmentsGeometry.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/lines/LineSegmentsGeometry.js",
+      "bytes": 4648,
+      "sha256": "53b7fcdaeddd9e44c40911c249d0023782e5c03a36b14d9278089ef53849597d"
+    },
+    {
+      "path": "sim/scripts/lz-string.min.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/lz-string.min.js",
+      "bytes": 4560,
+      "sha256": "6a8f3d9539ccd174c2731287cef10d209da886a08e96034d55c64cb09b7ea1e0"
+    },
+    {
+      "path": "sim/scripts/rand_shader.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/rand_shader.js",
+      "bytes": 1354,
+      "sha256": "f0f9d5abc04f7b2f1be66bd32f9575a6aa907ca8a6a73fe6cdc344ba7d96f307"
+    },
+    {
+      "path": "sim/scripts/stats.min.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/stats.min.js",
+      "bytes": 1830,
+      "sha256": "2cc16f62fc4e00416cc1102ff0c2cdc13b818bbbc97278659e6bc61b12febfac"
+    },
+    {
+      "path": "sim/scripts/three.module.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/three.module.js",
+      "bytes": 1187201,
+      "sha256": "e8fa43bd1aabd777dd8c370837441b067c6210a355d1c70229325be264717153"
+    },
+    {
+      "path": "sim/scripts/three.module.min.js",
+      "source": "https://raw.githubusercontent.com/Pecnut/visual-pde/54b832c9374c7f97944e52ec40ba801deb801b7e/sim/scripts/three.module.min.js",
+      "bytes": 834896,
+      "sha256": "15742fcb88a5cca9d2aab1f534a0473389cb089012b6a022e91dde40f7a4e955"
+    },
+    {
+      "path": "assets/main.css",
+      "source": "https://visualpde.com/assets/main.css",
+      "bytes": 6982,
+      "sha256": "1950c3722341c35856a311ce8463d752a3a3223ac0e567764e78d2015a437f0a"
+    }
+  ],
+  "local_modifications": [
+    "Built sim/index.html from layout; removed Jekyll analytics/header tags",
+    "Made local assets relative; linked documentation to original site",
+    "Removed remote Google Fonts; copied live compiled CSS with hash",
+    "Made CSS assets relative and disabled configuration short-link upload"
+  ],
+  "limitations": [
+    "Other upstream example images are deliberately not bundled",
+    "Opening pre-existing upstream mini links may request their public resolution endpoint"
+  ],
+  "inventory_scope": "The files array is the original fetched upstream source inventory; hashes identify upstream contents. LOCAL-CHANGES.json records modified distribution files. Publication omissions are listed below.",
+  "publication_packaging": {
+    "date": "2026-10-16",
+    "omitted_files": [
+      ".DS_Store",
+      "assets/ani/demo.mp4",
+      "assets/ani/params.mp4",
+      "assets/favicons/main.psd",
+      "_layouts/sim.html"
+    ],
+    "notes": "Optional tutorial MP4 encodings omitted; their existing WebM alternatives remain. Unused Photoshop source omitted. No numerical source or preset is omitted. The Jekyll source template is omitted; its rendered sim/index.html is included."
+  },
+  "validation_note": "The original upstream packaging preceded browser validation. The research wrappers and local modifications were subsequently checked in the author's browser; model-specific numerical checks are recorded in lab/assets source notes. Cross-device trajectories are not guaranteed to be identical."
+}

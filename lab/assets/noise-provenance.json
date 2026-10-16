@@ -1,0 +1,605 @@
+{
+  "model": "Nonreciprocal stochastic Frenkel\u2013Kontorova lattice",
+  "paper": {
+    "title": "Noise-induced nonreciprocal topological dissipative solitons in directionally coupled chains and lattices",
+    "doi": "10.1007/s11071-025-10929-3",
+    "equation": "Eq. (2)",
+    "data": "https://rodare.hzdr.de/record/3556"
+  },
+  "equation": "d theta_ij = [sin(theta_ij)+(D-alpha)(theta_i+1,j-theta_ij)-(D+alpha)(theta_ij-theta_i-1,j)+D(theta_i,j+1+theta_i,j-1-2theta_ij)] dt + sigma dW_ij",
+  "parameters": {
+    "omega": 1,
+    "D": 0.3,
+    "D_perpendicular": 0.3,
+    "sigma": "sqrt(Gamma)"
+  },
+  "lattice": {
+    "nx": 256,
+    "ny": 128,
+    "dx": 1,
+    "dy": 1,
+    "meaning": "Each computational node is one physical lattice element. Keep the mesh fixed; display scaling does not refine the lattice."
+  },
+  "boundaries": {
+    "left": "external theta_0,j = 0, as in paper Eq. (2) boundary specification",
+    "right": "external theta_N+1,j = theta_N,j, a free last bond",
+    "transverse": "periodic in y",
+    "implementation": "Explicit neighbor addressing with zero upstream and self-copy downstream values; VisualPDE periodic wrapping is only used for transverse bonds. No continuum limit is taken."
+  },
+  "time_integrator": {
+    "method": "Euler\u2013Maruyama",
+    "dt": 0.02,
+    "visualpde_scheme": "Euler",
+    "steps_per_frame": 12
+  },
+  "noise": {
+    "normalization": "E[dW_ij dW_kl] = delta_ik delta_jl dt; independent per-site Brownian increments",
+    "reaction_expression": "sigma*RANDN/sqrt(dt)",
+    "step_increment": "sigma*sqrt(dt)*RANDN",
+    "mesh_factor": "None: these are physical lattice degrees of freedom, not a spatial-white-noise continuum discretization.",
+    "setSeed": false,
+    "seed_reason": "In this engine snapshot setSeed=true prevents updating the GLSL random seed during timestepping, making the forcing quenched. setSeed=false advances the shader seed each step.",
+    "generator": "Opt-in integer-hash Gaussian shader (lowbias32 plus symmetric open midpoint uniform and inverse-erf); legacy hash replaced only for research presets.",
+    "generator_details": {
+      "option": "gaussianNoiseGenerator=integer-hash",
+      "scope": "Opt-in for the local noise-* and gl-* research presets only; legacy RAND and default RANDN behavior unchanged.",
+      "algorithm": "Two stages of the 32-bit lowbias32 integer permutation. First mix floatBitsToUint(seed) with four distinct additive channel salts, then XOR the packed integer render-target cell coordinates and apply lowbias32 again.",
+      "algorithm_source": "https://github.com/skeeto/hash-prospector",
+      "constants": {
+        "shifts": [
+          16,
+          15,
+          16
+        ],
+        "multipliers": [
+          "0x7feb352d",
+          "0x846ca68b"
+        ],
+        "channel_salts": [
+          "0x00000000",
+          "0x9e3779b9",
+          "0x3c6ef372",
+          "0xdaa66d2b"
+        ]
+      },
+      "uniform_mapping": "U = ((hash >> 9) + 0.5) / 8388608; a symmetric 23-bit midpoint grid strictly inside (0,1), exactly represented in float32.",
+      "normal_mapping": "sqrt(2) * erfinv(2*U-1), retaining the engine approximate odd inverse-erf; its asymmetric endpoint exception is unreachable for this generator.",
+      "temporal_seed": "Existing updateRandomSeed() sequence advances once per Euler step when setSeed=false. Cell and Gaussian channel have separate integer keys. No finite sample mean is subtracted.",
+      "coordinate_bound": "Packed x and y each use 16 bits, exceeding the 256x128 and 192x192 research grids.",
+      "reason": "The legacy float sin/fract hash produced a nonzero point mass at U=0, mapped only to a negative Gaussian tail; the resulting mean favored the negative phase.",
+      "legacy_gpu_audit": {
+        "samples": 3276800,
+        "mean": -0.00682397,
+        "variance": 0.986965,
+        "nominal_iid_standard_error": 0.000549,
+        "uniform_zero_fraction": 0.002508
+      },
+      "validation_artifact": "author-production-archive/noise-bias-20261016/gpu-rng-audit.html",
+      "validation_scope": "Measured in this browser and WebGL2 implementation with finite samples. Nominal IID errors are descriptive; this does not prove independence at every lag, absence of every possible bias, or identical trajectories across hardware.",
+      "GPU_validation": {
+        "date": "2026-10-16",
+        "method": "Direct WebGL2 RGBA32F noise-only shader draws in this browser, importing both current local randNShader implementations; 100 draws on a 256x128 grid for each initial seed.",
+        "seed_starts": [
+          20261016,
+          8256,
+          7654321
+        ],
+        "samples_per_trial": 3276800,
+        "trials_per_generator": 3,
+        "results": [
+          {
+            "generator": "legacy",
+            "seed_start": 20261016,
+            "N": 3276800,
+            "mean": -0.006823973269928487,
+            "variance": 0.9869651849049179,
+            "channel2_mean": -0.0048263401259811545,
+            "channel2_variance": 0.9852467744256869,
+            "cross_channel_correlation": -0.00013425777805697818,
+            "mean_nominal_iid_standard_error": 0.0005488149700672431,
+            "uniform_mean": 0.49865169972596507,
+            "uniform_zero_fraction": 0.00250823974609375,
+            "negative_fraction": 0.5001705932617188,
+            "positive_fraction": 0.4973175048828125,
+            "nonfinite": 0
+          },
+          {
+            "generator": "legacy",
+            "seed_start": 8256,
+            "N": 3276800,
+            "mean": -0.006326365128927059,
+            "variance": 0.9863760064154568,
+            "channel2_mean": -0.009014116180027827,
+            "channel2_variance": 0.9878481150801068,
+            "cross_channel_correlation": -0.00011184110240540115,
+            "mean_nominal_iid_standard_error": 0.000548651135389413,
+            "uniform_mean": 0.4987942767375671,
+            "uniform_zero_fraction": 0.00255340576171875,
+            "negative_fraction": 0.4999148559570312,
+            "positive_fraction": 0.49753265380859374,
+            "nonfinite": 0
+          },
+          {
+            "generator": "legacy",
+            "seed_start": 7654321,
+            "N": 3276800,
+            "mean": -0.006070224821363119,
+            "variance": 0.9881661939021509,
+            "channel2_mean": -0.005046818485421696,
+            "channel2_variance": 0.9868061985714747,
+            "cross_channel_correlation": 5.731807669145239e-05,
+            "mean_nominal_iid_standard_error": 0.000549148786968457,
+            "uniform_mean": 0.4988220369619103,
+            "uniform_zero_fraction": 0.002532958984375,
+            "negative_fraction": 0.499822998046875,
+            "positive_fraction": 0.49763458251953124,
+            "nonfinite": 0
+          },
+          {
+            "generator": "integer-hash",
+            "seed_start": 20261016,
+            "N": 3276800,
+            "mean": -0.00020311421351525637,
+            "variance": 1.0004100343279265,
+            "channel2_mean": -0.00011617476765245272,
+            "channel2_variance": 0.9996990271837587,
+            "cross_channel_correlation": -0.0010318071806603756,
+            "mean_nominal_iid_standard_error": 0.0005525404182468142,
+            "uniform_mean": 0.4999299955074457,
+            "uniform_zero_fraction": 0,
+            "negative_fraction": 0.5001229858398437,
+            "positive_fraction": 0.49987701416015623,
+            "nonfinite": 0
+          },
+          {
+            "generator": "integer-hash",
+            "seed_start": 8256,
+            "N": 3276800,
+            "mean": 0.00044166333476738375,
+            "variance": 0.9988429159457899,
+            "channel2_mean": 0.0009161870129925021,
+            "channel2_variance": 1.0001187463335834,
+            "cross_channel_correlation": 0.00041885620920540664,
+            "mean_nominal_iid_standard_error": 0.0005521074779603918,
+            "uniform_mean": 0.5000851351095844,
+            "uniform_zero_fraction": 0,
+            "negative_fraction": 0.49990570068359375,
+            "positive_fraction": 0.5000942993164063,
+            "nonfinite": 0
+          },
+          {
+            "generator": "integer-hash",
+            "seed_start": 7654321,
+            "N": 3276800,
+            "mean": 0.00033780684820111873,
+            "variance": 0.9986206199433927,
+            "channel2_mean": 0.0005654786081603902,
+            "channel2_variance": 1.0004094693406669,
+            "cross_channel_correlation": -8.728736887570585e-05,
+            "mean_nominal_iid_standard_error": 0.0005520460378116885,
+            "uniform_mean": 0.500089885028392,
+            "uniform_zero_fraction": 0,
+            "negative_fraction": 0.4998211669921875,
+            "positive_fraction": 0.5001788330078125,
+            "nonfinite": 0
+          }
+        ],
+        "complete_midpoint_quantile_CPU_check": {
+          "uniform_count": 8388608,
+          "uniform_range": [
+            5.960464477539063e-08,
+            0.9999999403953552
+          ],
+          "normal_mean_over_complete_uniform_grid": 0.0,
+          "normal_variance_over_complete_uniform_grid": 0.9994242524688874,
+          "maximum_opposite_quantile_sum": 0.0,
+          "finite": true
+        },
+        "result": "The negative mean and zero-uniform endpoint mass measured in all three legacy trials were absent at the tested statistical resolution with the opt-in integer generator. All three corrected first-channel means were within one nominal IID standard error of zero; both channels had near-unit measured variance and no nonfinite values.",
+        "scope": "Measured in this browser and WebGL2 implementation with finite samples. Nominal IID errors are descriptive; this does not prove independence at every lag, absence of every possible bias, or identical trajectories across hardware.",
+        "source_artifact": "author-production-archive/noise-bias-20261016/gpu-comparison.json",
+        "source_sha256": "64ae984814d64d3ff4d573c1a1ddc8a8fbc5f82cf790f9e6f9331912faabdab6"
+      },
+      "native_engine_validation": {
+        "entry_version": "sim/scripts/RD/main.js?research=9",
+        "shader_and_preset_import_version": "gaussian=2",
+        "observed_by": "Root agent via current browser UI, visible iframe URL and console diagnostics",
+        "noise": {
+          "preset": "noise-boundary-coarsening",
+          "alpha": 0.42,
+          "sigma": 0.2,
+          "observed_time_approx": 801.4,
+          "observed_wall_measure_approx": 1.137,
+          "console_errors": 0,
+          "result": "Loaded requested parameters and evolved the visible lattice with finite displayed aggregate."
+        },
+        "gl": {
+          "preset": "gl-vortices",
+          "observed_time_approx": 55.6,
+          "observed_mean_amplitude_squared_approx": 0.963,
+          "console_errors": 0,
+          "result": "Evolved the visible complex field with finite displayed aggregate."
+        },
+        "scope": "Native-engine compile and functional evolution checks of these presets in this browser, not an exhaustive parameter or convergence study."
+      }
+    }
+  },
+  "initial_conditions": {
+    "method": "CPU Euler\u2013Maruyama pre-evolution from 0.01 times independent standard normal sites, NumPy default_rng seed 42; all fields stored in lossless RGB24 PNGs with separate affine scales.",
+    "time_display": "The browser clock measures time after loading the starting field.",
+    "browser_continuation": "Same deterministic operator, boundaries, dt and per-step noise variance, with VisualPDE GLSL random numbers rather than NumPy draws.",
+    "states": [
+      {
+        "preset": "noise-sustained.json",
+        "alpha": 0.64,
+        "sigma": 0.1,
+        "pre_evolution_time": 640,
+        "asset": "noise-sustained-rgb24.png",
+        "shape_y_x": [
+          128,
+          256
+        ],
+        "range": [
+          -3.443023981228329,
+          3.4616706242510986
+        ],
+        "maximum_quantization_error": 2.0575912579312572e-07,
+        "asset_sha256": "acb9b1ba9594813a17b0574b258e9c240b6ceb69ab8911a5a1cd8653f6b212e0"
+      },
+      {
+        "preset": "noise-ordered.json",
+        "alpha": 0.48,
+        "sigma": 0.01,
+        "pre_evolution_time": 640,
+        "asset": "noise-ordered-rgb24.png",
+        "shape_y_x": [
+          128,
+          256
+        ],
+        "range": [
+          -3.2792825094861535,
+          3.2533060549366453
+        ],
+        "maximum_quantization_error": 1.946772960614851e-07,
+        "asset_sha256": "84669c7114c133648a0e7edd64d6beb3c8c7780fae48fbd5a9730b78e91b060e"
+      },
+      {
+        "preset": "noise-coarsening.json",
+        "alpha": 0,
+        "sigma": 0.1,
+        "pre_evolution_time": 160,
+        "asset": "noise-coarsening-rgb24.png",
+        "shape_y_x": [
+          128,
+          256
+        ],
+        "range": [
+          -3.343732921794122,
+          3.3598676604144613
+        ],
+        "maximum_quantization_error": 1.9977459375652984e-07,
+        "asset_sha256": "1496cba15507a05525d3e0251d162790fba2c5baf63152921b833d2b225bb705"
+      },
+      {
+        "preset": "noise-boundary-coarsening.json",
+        "alpha": 0.42,
+        "sigma": 0.2,
+        "pre_evolution_time": 8,
+        "asset": "noise-boundary-coarsening-rgb24.png",
+        "shape_y_x": [
+          128,
+          256
+        ],
+        "range": [
+          -3.4762071607346705,
+          3.4075435774792515
+        ],
+        "maximum_quantization_error": 2.0514706111640635e-07,
+        "asset_sha256": "b02508b3f268427eea6532aa3ea7fc63354ee2ad9e3e90aeb9a3f251db3c0b6c",
+        "selection": "Short pre-evolution retains many small domains so their subsequent coarsening is visible."
+      }
+    ]
+  },
+  "blank_canvas": {
+    "value": "-pi",
+    "brush_value": "pi",
+    "meaning": "A uniform negative-phase domain; draw positive-phase patches."
+  },
+  "validation": {
+    "sustained": {
+      "alpha": 0.64,
+      "sigma": 0.1,
+      "snapshots": {
+        "20": {
+          "finite": true,
+          "range": [
+            -3.407473158174227,
+            3.4902060549482523
+          ],
+          "wall_proxy": 2.4656958609129473,
+          "x_wall_fraction": 0.08933823529411765,
+          "y_wall_fraction": 0.0784912109375
+        },
+        "80": {
+          "finite": true,
+          "range": [
+            -3.435010349449032,
+            3.52376278870776
+          ],
+          "wall_proxy": 2.1913996636148596,
+          "x_wall_fraction": 0.09748774509803922,
+          "y_wall_fraction": 0.04449462890625
+        },
+        "160": {
+          "finite": true,
+          "range": [
+            -3.4179567353300278,
+            3.44439604891349
+          ],
+          "wall_proxy": 2.902131397007877,
+          "x_wall_fraction": 0.14534313725490197,
+          "y_wall_fraction": 0.03253173828125
+        }
+      }
+    },
+    "ordered": {
+      "alpha": 0.44,
+      "sigma": 0.01,
+      "snapshots": {
+        "20": {
+          "finite": true,
+          "range": [
+            -3.2343975460923917,
+            3.2212314605701526
+          ],
+          "wall_proxy": 2.325956204362141,
+          "x_wall_fraction": 0.08379289215686274,
+          "y_wall_fraction": 0.075439453125
+        },
+        "80": {
+          "finite": true,
+          "range": [
+            -3.217978486071786,
+            3.2206508194031587
+          ],
+          "wall_proxy": 1.4010370016945082,
+          "x_wall_fraction": 0.05361519607843137,
+          "y_wall_fraction": 0.04083251953125
+        },
+        "160": {
+          "finite": true,
+          "range": [
+            -3.223913625404081,
+            3.224781976398334
+          ],
+          "wall_proxy": 1.1829454293046098,
+          "x_wall_fraction": 0.04733455882352941,
+          "y_wall_fraction": 0.0318603515625
+        }
+      }
+    },
+    "coarsening": {
+      "alpha": 0,
+      "sigma": 0.1,
+      "snapshots": {
+        "20": {
+          "finite": true,
+          "range": [
+            -3.32553018805204,
+            3.3150728480205505
+          ],
+          "wall_proxy": 2.2291727104682977,
+          "x_wall_fraction": 0.0798406862745098,
+          "y_wall_fraction": 0.083740234375
+        },
+        "80": {
+          "finite": true,
+          "range": [
+            -3.335889363381936,
+            3.334987349012826
+          ],
+          "wall_proxy": 1.3353740680507862,
+          "x_wall_fraction": 0.04537377450980392,
+          "y_wall_fraction": 0.05303955078125
+        },
+        "160": {
+          "finite": true,
+          "range": [
+            -3.343732921794122,
+            3.3598676604144617
+          ],
+          "wall_proxy": 1.0433300850236247,
+          "x_wall_fraction": 0.034436274509803924,
+          "y_wall_fraction": 0.04254150390625
+        }
+      }
+    },
+    "operator_max_error": 1.7763568394002505e-15,
+    "noise_variance": {
+      "expected": 0.00020000000000000004,
+      "measured": 0.00019992466158683635
+    },
+    "scope": "Short exploratory runs, including an earlier ordered candidate alpha=0.44; shipped ordered field uses alpha=0.48 and is pre-evolved to t=640. The CPU step uses the same lattice equation and SDE convention as the browser, with a different random-number generator.",
+    "shipped_state_continuations": [
+      {
+        "preset": "noise-sustained.json",
+        "continuation_time": 10,
+        "all_finite": true,
+        "rms_change": 2.9232232761963153,
+        "range": [
+          -3.444683823482115,
+          3.4476650479071296
+        ]
+      },
+      {
+        "preset": "noise-ordered.json",
+        "continuation_time": 10,
+        "all_finite": true,
+        "rms_change": 5.478048866765556,
+        "range": [
+          -3.2538991336392944,
+          3.28450517179012
+        ]
+      },
+      {
+        "preset": "noise-coarsening.json",
+        "continuation_time": 10,
+        "all_finite": true,
+        "rms_change": 0.2104493903567891,
+        "range": [
+          -3.3202608894477965,
+          3.3429479301520018
+        ]
+      }
+    ],
+    "boundary_coarsening": {
+      "parameters": {
+        "D": 0.3,
+        "alpha": 0.42,
+        "sigma": 0.2,
+        "dt": 0.02,
+        "seed": 42
+      },
+      "snapshots": {
+        "0": {
+          "all_finite": true,
+          "min": -0.043891145848648366,
+          "max": 0.04151241397039601,
+          "mean": 8.84766389562438e-05,
+          "positive_fraction": 0.502227783203125,
+          "wall_measure": 9.86950344944587,
+          "x_wall_fraction": 0.4950061274509804,
+          "y_wall_fraction": 0.4993896484375,
+          "mean_abs_phase_per_32_x_sites": [
+            0.008033744964889976,
+            0.00792893668389115,
+            0.007983808902249735,
+            0.00799937546802083,
+            0.008033528819501022,
+            0.008053979064996705,
+            0.007919930425327223,
+            0.00803811746452726
+          ]
+        },
+        "8": {
+          "all_finite": true,
+          "min": -3.4762071607346705,
+          "max": 3.4075435774792515,
+          "mean": 0.09161924564394558,
+          "positive_fraction": 0.51708984375,
+          "wall_measure": 3.8201363207110095,
+          "x_wall_fraction": 0.11415441176470588,
+          "y_wall_fraction": 0.114013671875,
+          "mean_abs_phase_per_32_x_sites": [
+            2.2030747635276797,
+            2.378332655076764,
+            2.3721215304667886,
+            2.3197496825557384,
+            2.327550994125983,
+            2.33534104611738,
+            2.254080933502771,
+            2.3206104422563776
+          ]
+        },
+        "20": {
+          "all_finite": true,
+          "min": -3.5846393292820924,
+          "max": 3.4818049293295292,
+          "mean": 0.16916980241358734,
+          "positive_fraction": 0.528411865234375,
+          "wall_measure": 2.28897190733222,
+          "x_wall_fraction": 0.07892156862745098,
+          "y_wall_fraction": 0.07965087890625,
+          "mean_abs_phase_per_32_x_sites": [
+            2.4928363583312816,
+            2.6420567973262243,
+            2.715094827598497,
+            2.677574993050378,
+            2.6713283581383265,
+            2.680795080455621,
+            2.6373208494944853,
+            2.6570050173814574
+          ]
+        },
+        "80": {
+          "all_finite": true,
+          "min": -3.558673198672241,
+          "max": 3.512058020797574,
+          "mean": 0.2935369407241628,
+          "positive_fraction": 0.54693603515625,
+          "wall_measure": 1.401650741573647,
+          "x_wall_fraction": 0.04595588235294118,
+          "y_wall_fraction": 0.05047607421875,
+          "mean_abs_phase_per_32_x_sites": [
+            2.6170316864795846,
+            2.8242790992295044,
+            2.8596886728424673,
+            2.859085795285168,
+            2.872196246799121,
+            2.901061734237805,
+            2.897399078465912,
+            2.87504254475862
+          ]
+        },
+        "160": {
+          "all_finite": true,
+          "min": -3.505309149351249,
+          "max": 3.588619909988808,
+          "mean": 0.25586936095920043,
+          "positive_fraction": 0.539764404296875,
+          "wall_measure": 1.185628338126591,
+          "x_wall_fraction": 0.041268382352941176,
+          "y_wall_fraction": 0.03997802734375,
+          "mean_abs_phase_per_32_x_sites": [
+            2.6496736212804732,
+            2.8700606811328884,
+            2.8720387351443737,
+            2.9232227422617916,
+            2.9441561481279113,
+            2.9422853062690337,
+            2.926701663759901,
+            2.947972400896812
+          ]
+        },
+        "320": {
+          "all_finite": true,
+          "min": -3.5521894739353383,
+          "max": 3.4736292399755686,
+          "mean": -0.03636640226023303,
+          "positive_fraction": 0.4942626953125,
+          "wall_measure": 1.0830613701940308,
+          "x_wall_fraction": 0.04212622549019608,
+          "y_wall_fraction": 0.03173828125,
+          "mean_abs_phase_per_32_x_sites": [
+            2.6492163467865617,
+            2.85831352091151,
+            2.907361547637292,
+            2.8835755181302685,
+            2.962883698080719,
+            2.9584087026768477,
+            2.9852449748766743,
+            3.026978436808455
+          ]
+        }
+      },
+      "observation": "This bounded trajectory shows coarsening across the domain up to the upstream edge, without a macroscopically resolved layer of ordered waves. It does not establish an ensemble phase boundary."
+    },
+    "sign_symmetry_audit": {
+      "shipped_sustained_negative_fraction": 0.488555908203125,
+      "paired_CPU_Euler_steps": 500,
+      "paired_max_sign_error": 0.0,
+      "source": "author-production-archive/noise-bias-20261016/audit.json"
+    }
+  },
+  "research_code_comparison": {
+    "path": "research-repositories/noise-induced-topological-solitons/simulation/noise_fk2d.py",
+    "relationship": "The deterministic nearest-neighbor equation is the same. The website implements the paper free-end condition theta_N+1=theta_N and a normalized Euler\u2013Maruyama stochastic equation. The historical research implementation overwrites its last ghost layer from the third-last entry and draws unscaled Gaussian forcing independently at four RK4 stages. Consequently this is an interactive implementation of the published model, not a bytewise reproduction of archived stochastic trajectories or phase boundaries."
+  },
+  "provenance_scripts": [
+    "author-production-archive/noise-example-20261016/validate.py",
+    "author-production-archive/noise-example-20261016/extend.py",
+    "author-production-archive/noise-example-20261016/build_presets.py",
+    "author-production-archive/noise-boundary-state-20261016/generate.py",
+    "author-production-archive/noise-boundary-state-20261016/build_state.py"
+  ]
+}

@@ -1,0 +1,8 @@
+.view-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:12px;font-size:12px}
+.view-controls[hidden]{display:none}.view-controls select{width:auto;min-width:160px;margin:0;padding:5px 10px}
+.field-footer{flex-wrap:wrap}.tabs button{padding-inline:10px}.tabs span{display:block;margin:0}.tabs small{margin:0}
+#workspace[data-model=prl] .experiment,#workspace[data-model=noise] .experiment{max-width:1100px;grid-template-columns:minmax(0,1fr) 250px;gap:30px}
+#workspace[data-model=prl] #simulation-shell{border:1px solid var(--line)}
+.hint{max-width:52ch}
+@media(max-width:850px){#workspace[data-model=prl] .experiment,#workspace[data-model=noise] .experiment{grid-template-columns:1fr}#workspace[data-model=prl] aside,#workspace[data-model=noise] aside{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}.select-label,select,#controls,.actions,.blank-button,.hint,aside>a,.suggestion{grid-column:1/-1}#workspace[data-model=prl] #controls,#workspace[data-model=noise] #controls{display:grid;grid-template-columns:1fr 1fr;gap:18px}.control{margin:0 0 15px}}
+@media(max-width:650px){.tabs span{font-size:12px}.tabs small{font-size:9px}.workspace-head{gap:10px}.workspace-head>a{white-space:normal;text-align:right}.field-footer{gap:5px 10px}}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#24584b">
+  <title>Patterns, live — David Pinto Ramos</title>
+  <script>if(new URLSearchParams(location.search).get('embedded')==='1')document.documentElement.classList.add('embedded');</script>
+  <link rel="stylesheet" href="lab.css">
+</head>
+<body>
+  <header class="shell header"><a href="../index.html">David Pinto Ramos</a><span>Interactive research notebook</span></header>
+  <main class="shell">
+    <section class="intro"><p class="eyebrow">Explore the models</p><h1>Patterns, live.</h1><p>Change a parameter. Follow a pattern. These simulations evolve the reduced equations from my research directly in your browser.</p></section>
+    <div class="tabs" role="tablist" aria-label="Research model">
+      <button id="tab-grl" role="tab" aria-selected="true" aria-controls="workspace" data-model="grl"><span>Vegetation spot arrays</span><small>GRL · 2025</small></button>
+      <button id="tab-science" role="tab" aria-selected="false" aria-controls="workspace" data-model="science"><span>Topological defects</span><small>Science Advances · 2023</small></button>
+    </div>
+    <section id="workspace" role="tabpanel" aria-labelledby="tab-grl">
+      <div class="workspace-head"><div><p id="model-kicker" class="eyebrow"></p><h2 id="model-title"></h2></div><a id="paper-link" target="_blank" rel="noopener">Read the paper ↗</a></div>
+      <p id="model-description" class="description"></p>
+      <div class="experiment">
+        <div class="field-column">
+          <div id="simulation-shell"><iframe id="simulation" title="Interactive vegetation simulation" allow="fullscreen" loading="eager"></iframe><p id="loading" role="status">Preparing the model…</p></div>
+          <div class="field-footer"><span><i></i> Biomass density</span><span id="clock">t = 0</span><span id="mean">Mean biomass —</span></div>
+        </div>
+        <aside aria-label="Simulation controls">
+          <label class="select-label" for="regime">Experiment</label><select id="regime"></select>
+          <div id="controls"></div>
+          <div class="actions"><button id="play" class="primary">Play</button><button id="reset">Reset</button></div>
+          <button id="blank" class="blank-button" aria-pressed="false">Blank canvas</button>
+          <button id="suggestion" class="suggestion"></button>
+          <p id="try-note" class="hint"></p>
+          <p class="hint">Click or drag on the field to add a local perturbation.</p>
+          <a id="editor-link" target="_blank" rel="noopener">Open the VisualPDE editor ↗</a>
+        </aside>
+      </div>
+      <details open class="equations"><summary>The reduced equation</summary><div id="equation" class="equation"></div><p id="equation-note"></p><div id="parameter-notes"></div></details>
+      <details class="methods"><summary>Simulation details</summary><div id="methods"></div><p><a id="preset-link" download>Download simulation settings (JSON)</a> · <a id="provenance-link">Sources and methods (JSON)</a> · <a href="visualpde/LICENSE.md">Software licences</a></p></details>
+    </section>
+    <footer>David Pinto Ramos <span>Equations from published research · Powered by <a href="https://visualpde.com">VisualPDE</a></span></footer>
+  </main>
+  <div id="file-help" hidden>This laboratory needs an HTTP server. See the <a href="../README.md">local preview instructions</a>, then open the page through that server.</div>
+  <script>if(location.protocol==='file:')document.getElementById('file-help').hidden=false;</script>
+  <script type="module" src="lab.js"></script>
+</body>
+</html>

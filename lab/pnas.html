@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#24584b">
+<title>Patterns and resilience — David Pinto Ramos</title>
+<script>if(new URLSearchParams(location.search).get('embedded')==='1')document.documentElement.classList.add('embedded');</script>
+<link rel="stylesheet" href="lab.css"><link rel="stylesheet" href="pnas.css?v=5">
+</head>
+<body>
+<header class="shell header"><a href="../index.html">David Pinto Ramos</a><a href="index.html">Explore the other models</a></header>
+<main class="shell">
+<section id="workspace">
+<div class="workspace-head"><div><p class="eyebrow">PNAS · 2026</p><h2>When patterns lose ground</h2></div><a href="https://doi.org/10.1073/pnas.2511994123" target="_blank" rel="noopener">Read the paper ↗</a></div>
+<p class="description">The same environment, two responses. Follow the retreat of vegetation bands and the persistence of a homogeneous state as directional interactions transport biomass across the domain.</p>
+<div class="comparison" aria-label="Synchronised comparison">
+<article><div class="panel-title"><h3>Pattern-forming</h3><span>Γ = 2.25</span></div><div class="comparison-field"><iframe id="patterns" title="Pattern-forming regime"></iframe></div><div class="field-footer"><span>Mean biomass</span><output id="patterns-mean">—</output></div></article>
+<article><div class="panel-title"><h3>Homogeneous</h3><span>Γ = 1</span></div><div class="comparison-field"><iframe id="homogeneous" title="Homogeneous regime"></iframe></div><div class="field-footer"><span>Mean biomass</span><output id="homogeneous-mean">—</output></div></article>
+</div>
+<div class="comparison-controls"><div class="actions"><button id="play" class="primary" disabled>Play both</button><button id="reset">Reset both</button></div><span id="clock">t = 0</span><div class="control shared-parameter"><label for="alpha">Asymmetry · α <output id="alpha-value" for="alpha">0.15</output></label><input id="alpha" type="range" min="0" max="0.6" step="0.01" value="0.15" aria-describedby="alpha-help" disabled><small id="alpha-help">Changes both models together.</small></div><div class="control shared-parameter"><label for="eta">Aridity · η <output id="eta-value" for="eta">0.035</output></label><input id="eta" type="range" min="-0.05" max="0.06" step="0.001" value="0.035" aria-describedby="eta-help" disabled><small id="eta-help">Changes both models together.</small></div><span class="shared">κ = 0.3 · d = 0.3</span></div>
+<p class="hint comparison-hint">Drag to perturb either field. Right-click to erase. Reset both restores the starting fields, α = 0.15 and η = 0.035.</p>
+<p id="loading" class="comparison-loading" role="status">Preparing both models…</p>
+<details class="equations"><summary>The reduced equation</summary><div class="equation">∂<sub>t</sub><em>b</em> = (−η + κ<em>b</em> − <em>b</em><sup>2</sup>/2)<em>b</em> + <em>d</em>∇<sup>2</sup><em>b</em> − <em>b</em>(α∂<sub>x</sub> + Γ∂<sub>x</sub><sup>2</sup> + ∂<sub>x</sub><sup>4</sup>)<em>b</em></div><p>The two panels differ only in the antidiffusion coefficient Γ. Their initial states are prepared with the same parameter history, and both advance through the same elapsed time.</p></details>
+<details class="methods"><summary>Simulation details</summary><p>This comparison follows the one-dimensional mechanism in the PNAS paper. The initial fields are constant along y; drawing adds local two-dimensional perturbations. Both are displayed through the same two-dimensional operator as the topological-defect model. Both use zero biomass at the two x boundaries and periodicity in y. Boundary bands can remain after the patterns retreat from the interior.</p><p id="numerics">Explicit Euler with identical grids and time steps in both panels.</p><p><a href="assets/pnas-comparison-provenance.json">Sources and methods (JSON)</a> · <a href="presets/pnas-patterns.json">Pattern preset</a> · <a href="presets/pnas-homogeneous.json">Homogeneous preset</a> · <a href="visualpde/LICENSE.md">Software licences</a></p></details>
+</section>
+<footer>David Pinto Ramos <span>Powered by <a href="https://visualpde.com">VisualPDE</a></span></footer>
+</main>
+<script type="module" src="pnas.js?v=7"></script>
+</body></html>

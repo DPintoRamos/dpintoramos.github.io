@@ -11,7 +11,9 @@
     "Research mode: signal ready only after both initial image loads; generation guards ignore obsolete image callbacks before they can reset a running comparison",
     "2026-10-16: opt-in integer-hash Gaussian generator for noise and GL research presets; symmetric open midpoint uniforms remove the confirmed negative endpoint bias of the legacy sin/fract generator. Upstream presets retain legacy behavior.",
     "2026-10-16 publication packaging: editor help links point to the official VisualPDE documentation; favicon manifests use relative icon paths and correct WebP media types; optional tutorials retain WebM only; native module cache version updated. No equations, time-step formulas, initial fields or parameter values changed.",
-    "Publication packaging omits the unrendered upstream Jekyll template. Two source comments refer generically to upstream implementation notes instead of a developer-specific absolute path; executable statements are unchanged."
+    "Publication packaging omits the unrendered upstream Jekyll template. Two source comments refer generically to upstream implementation notes instead of a developer-specific absolute path; executable statements are unchanged.",
+    "2026-10-16 mobile numerical audit: explicit highp sampler2D declarations across initialization, state copying/resizing, drawing, simulation, display/interpolation, reductions and probes; checkpoint material uses the same sampler precision. Native engine, shader imports and embedding wrappers use updated cache versions. POCO X6 validation remains pending.",
+    "2026-10-16 research image failures: a generation-guarded image onerror pauses the simulation and reports research:error to its same-origin wrapper. Failed initial images cannot mark the simulation ready; ordinary VisualPDE image behavior and retries are unchanged."
   ],
   "solver_source_modified": true,
   "files": [
@@ -28,12 +30,12 @@
     {
       "path": "sim/index.html",
       "status": "modified",
-      "sha256": "a0834e1ddabf81db3fdbbd1d62c65d55dec9cff805d4b77111a0e362801d4659"
+      "sha256": "430723b343bba6e77b4a3b59a4e999456f560f76c750836654889d1571ee5b3a"
     },
     {
       "path": "sim/scripts/RD/main.js",
       "status": "modified",
-      "sha256": "bb0a8aad4c815f8f9649c9130780e800db2a4dbf668a695d3aff654dc1d6ff03"
+      "sha256": "c4de0ef5de0fadfd71944f2b6baea4cecf1693673da7cec6600144ee9c62fd5b"
     },
     {
       "path": "sim/scripts/colourmaps.js",
@@ -69,9 +71,39 @@
       "path": "sim/scripts/RD/species_config.js",
       "status": "modified",
       "sha256": "12e1fb2b4720ea92e65701ddbbc16d0d0f8cd12823cc785f83808f567600614d"
+    },
+    {
+      "path": "sim/scripts/copy_shader.js",
+      "status": "modified",
+      "sha256": "1a559422cc7c49c75ceea54052782114aaf7382fc1ef4c1c3d534a0466f20012"
+    },
+    {
+      "path": "sim/scripts/RD/clear_shader.js",
+      "status": "modified",
+      "sha256": "3518f0159e04940c9a912f8d295d1cca528978692df7be1dbb40fa4476d679a5"
+    },
+    {
+      "path": "sim/scripts/RD/drawing_shaders.js",
+      "status": "modified",
+      "sha256": "864749b3e37d94372c240b0dee1394c4e9ec712ecac2625a3bcb26772f6da7c4"
+    },
+    {
+      "path": "sim/scripts/RD/post_shaders.js",
+      "status": "modified",
+      "sha256": "38bd3557379aefeb1adb207bc2ffa1fc10707104643e98f2480b6a72c85647cc"
+    },
+    {
+      "path": "sim/scripts/RD/display_shaders.js",
+      "status": "modified",
+      "sha256": "3b4e5a92a8406663c17744ccdd480ebd46773cab8cdc618a1942d57c9af18784"
+    },
+    {
+      "path": "sim/scripts/RD/simulation_shaders.js",
+      "status": "modified",
+      "sha256": "b8c636cd7d28eda68036fb7075d76710e26b82d799e44446d29851d09ec1557b"
     }
   ],
-  "solver_change_scope": "Execution scheduling, image readiness, probe timing and research brush behavior changed in main.js; spatial shaders and timestep numerical formulas unchanged. Optional research Gaussian noise generator added and selected by noise/GL presets; deterministic spatial stencils, time stepping formulas and legacy presets unchanged by this fix.",
+  "solver_change_scope": "Execution scheduling, image readiness, probe timing and research brush behavior changed in main.js; spatial shader arithmetic and timestep numerical formulas unchanged. Sampler precision is now explicit highp throughout state/initialization and auxiliary shader passes. Optional research Gaussian noise generator added and selected by noise/GL presets; deterministic spatial stencils, time stepping formulas and legacy presets unchanged by this fix.",
   "research_gaussian_generator": {
     "option": "gaussianNoiseGenerator=integer-hash",
     "scope": "Opt-in for the local noise-* and gl-* research presets only; legacy RAND and default RANDN behavior unchanged.",
@@ -253,6 +285,83 @@
         "result": "Evolved the visible complex field with finite displayed aggregate."
       },
       "scope": "Native-engine compile and functional evolution checks of these presets in this browser, not an exhaustive parameter or convergence study."
+    }
+  },
+  "texture_precision_audit": {
+    "date": "2026-10-16",
+    "entry_version": "sim/scripts/RD/main.js?research=11",
+    "shader_import_version": "texturePrecision=1",
+    "status": "candidate correction; POCO X6 validation pending",
+    "reason": "The evolution shader already requested highp samplers, but initialization, state copies, drawing and output reductions relied on default sampler precision. Float32 render targets alone do not declare shader sampler precision.",
+    "changes": "Explicit highp sampler2D uniforms and computeRHS sampler parameters in six shader modules; highp sampler default for the checkpoint MeshBasicMaterial before compilation.",
+    "unchanged": "Texture formats, model equations, finite-difference stencil arithmetic, dt, parameters, initial images, and domain/grid size.",
+    "source_verification": "Removing only the newly added precision qualifiers reproduces the six pre-change shader modules exactly.",
+    "limitation": "Does not establish that this caused the user-reported POCO X6 behavior, nor that cross-device trajectories are identical.",
+    "syntax_verification": {
+      "javascript_modules": 7,
+      "generated_shader_headers": 37,
+      "result": "PASS; Node v24.19.0 syntax checks and sampler/MRT generation assertions"
+    },
+    "desktop_browser_validation": {
+      "models": [
+        {
+          "model": "grl-clusters",
+          "ready": true,
+          "samples": [
+            {
+              "x": 0,
+              "y": 0.015907495475074526
+            },
+            {
+              "x": 0.24000000000000019,
+              "y": 0.01584290116094442
+            },
+            {
+              "x": 0.48000000000000037,
+              "y": 0.015785303022655368
+            }
+          ],
+          "cpu_reference_means": [
+            0.01590749,
+            0.0158429,
+            0.0157853
+          ],
+          "max_absolute_difference_from_rounded_CPU_reference": 5.4750745256959554e-09
+        },
+        {
+          "model": "science-turbulent",
+          "ready": true,
+          "samples": [
+            {
+              "x": 0,
+              "y": 0.8374089339001602
+            },
+            {
+              "x": 0.24000000000000019,
+              "y": 0.8373874370156318
+            },
+            {
+              "x": 0.48000000000000037,
+              "y": 0.8373552562378835
+            }
+          ],
+          "cpu_reference_means": [
+            0.83740884,
+            0.83738736,
+            0.83735518
+          ],
+          "max_absolute_difference_from_rounded_CPU_reference": 9.390016020294212e-08
+        }
+      ],
+      "delayed_image_check": {
+        "landscape_delay_seconds": 4,
+        "ready_after_seconds": 4.63,
+        "early_probes_ignored": 10,
+        "early_time_advance": false,
+        "initial_biomass_display": 0.01591,
+        "blank_biomass_display": 0
+      },
+      "scope": "Desktop WebGL smoke and short numerical reference checks only. POCO X6 remains unverified. A MutationObserver console exception was observed in the browser session; no shader compilation error was observed in these successful numerical runs."
     }
   }
 }

@@ -2,8 +2,8 @@
 
 export function fiveColourDisplayTop() {
   return `varying vec2 textureCoords;
-    uniform sampler2D textureSource;
-    uniform sampler2D textureSource1;
+    uniform highp sampler2D textureSource;
+    uniform highp sampler2D textureSource1;
     uniform float minColourValue;
     uniform float maxColourValue;
     uniform float dx;
@@ -18,8 +18,8 @@ export function fiveColourDisplayTop() {
     uniform float globalIntegralValue3;
     uniform float globalIntegralValue4;
 
-    uniform sampler2D imageSourceOne;
-    uniform sampler2D imageSourceTwo;
+    uniform highp sampler2D imageSourceOne;
+    uniform highp sampler2D imageSourceTwo;
 
     uniform vec4 colour1;
     uniform vec4 colour2;
@@ -45,7 +45,7 @@ export function fiveColourDisplayTop() {
 
     uniform bool blendImage;
     uniform float blendImageAmount;
-    uniform sampler2D imageSourceBlend;
+    uniform highp sampler2D imageSourceBlend;
 
     AUXILIARY_GLSL_FUNS
 
@@ -159,8 +159,8 @@ export function overlayShader() {
 // used by overlayShaderMRT below), so an overlay expression can reference species 5-8.
 export function fiveColourDisplayTopMRT() {
   return fiveColourDisplayTop().replace(
-    "uniform sampler2D textureSource1;",
-    "uniform sampler2D textureSource1;\n    uniform sampler2D textureSourceGroup1;",
+    "uniform highp sampler2D textureSource1;",
+    "uniform highp sampler2D textureSource1;\n    uniform highp sampler2D textureSourceGroup1;",
   );
 }
 
@@ -190,7 +190,7 @@ export function overlayShaderMRT() {
 
 export function largestSpeciesShader() {
   return `varying vec2 textureCoords;
-      uniform sampler2D textureSource;
+      uniform highp sampler2D textureSource;
   
       void main()
       {   
@@ -200,7 +200,7 @@ export function largestSpeciesShader() {
 
 export function surfaceVertexShaderColour() {
   return `varying vec2 textureCoords;
-    uniform sampler2D textureSource;
+    uniform highp sampler2D textureSource;
     uniform float minColourValue;
     uniform float maxColourValue;
     uniform float heightScale;
@@ -220,7 +220,7 @@ export function surfaceVertexShaderColour() {
 
 export function surfaceVertexShaderCustom() {
   return `varying vec2 textureCoords;
-    uniform sampler2D textureSource;
+    uniform highp sampler2D textureSource;
     uniform float minColourValue;
     uniform float maxColourValue;
     void main()

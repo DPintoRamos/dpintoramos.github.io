@@ -2,9 +2,9 @@
 
 export function clearShaderTop() {
   return `varying vec2 textureCoords;
-    uniform sampler2D textureSource;
-    uniform sampler2D imageSourceOne;
-    uniform sampler2D imageSourceTwo;
+    uniform highp sampler2D textureSource;
+    uniform highp sampler2D imageSourceOne;
+    uniform highp sampler2D imageSourceTwo;
     uniform float dx;
     uniform float dy;
     uniform float L;

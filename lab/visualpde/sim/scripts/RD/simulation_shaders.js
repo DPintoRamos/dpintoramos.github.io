@@ -43,10 +43,10 @@ export function RDShaderTop(type) {
   let parts = [];
   parts[0] =
     "precision highp float; precision highp sampler2D; varying vec2 textureCoords;";
-  parts[1] = "uniform sampler2D textureSource;";
-  parts[2] = "uniform sampler2D textureSource1;";
-  parts[3] = "uniform sampler2D textureSource2;";
-  parts[4] = "uniform sampler2D textureSource3;";
+  parts[1] = "uniform highp sampler2D textureSource;";
+  parts[2] = "uniform highp sampler2D textureSource1;";
+  parts[3] = "uniform highp sampler2D textureSource2;";
+  parts[4] = "uniform highp sampler2D textureSource3;";
   return (
     parts.slice(0, numInputs + 1).join("\n") +
     `
@@ -63,8 +63,8 @@ export function RDShaderTop(type) {
     uniform float globalIntegralValue2;
     uniform float globalIntegralValue3;
     uniform float globalIntegralValue4;
-    uniform sampler2D imageSourceOne;
-    uniform sampler2D imageSourceTwo;
+    uniform highp sampler2D imageSourceOne;
+    uniform highp sampler2D imageSourceTwo;
 
     AUXILIARY_GLSL_FUNS
 
@@ -82,7 +82,7 @@ export function RDShaderTop(type) {
       return sqrt(sqrt(zERF*zERF - yERF * INV_ALPHA) - zERF) * sign(pERF);
     }
 
-    void computeRHS(sampler2D textureSource, vec4 uvwqIn, vec4 uvwqLIn, vec4 uvwqRIn, vec4 uvwqTIn, vec4 uvwqBIn, vec4 uvwqLLIn, vec4 uvwqRRIn, vec4 uvwqTTIn, vec4 uvwqBBIn, out highp vec4 result) {
+    void computeRHS(highp sampler2D textureSource, vec4 uvwqIn, vec4 uvwqLIn, vec4 uvwqRIn, vec4 uvwqTIn, vec4 uvwqBIn, vec4 uvwqLLIn, vec4 uvwqRRIn, vec4 uvwqTTIn, vec4 uvwqBBIn, out highp vec4 result) {
 
         ivec2 texSize = textureSize(textureSource,0);
         float step_x = 1.0 / float(texSize.x);
@@ -398,13 +398,13 @@ export function RDShaderTopMRT(type) {
   }
   let parts = [];
   parts[0] =
-    "uniform sampler2D textureSource;\n    uniform sampler2D textureSourceGroup1;";
+    "uniform highp sampler2D textureSource;\n    uniform highp sampler2D textureSourceGroup1;";
   parts[1] =
-    "uniform sampler2D textureSource1;\n    uniform sampler2D textureSource1Group1;";
+    "uniform highp sampler2D textureSource1;\n    uniform highp sampler2D textureSource1Group1;";
   parts[2] =
-    "uniform sampler2D textureSource2;\n    uniform sampler2D textureSource2Group1;";
+    "uniform highp sampler2D textureSource2;\n    uniform highp sampler2D textureSource2Group1;";
   parts[3] =
-    "uniform sampler2D textureSource3;\n    uniform sampler2D textureSource3Group1;";
+    "uniform highp sampler2D textureSource3;\n    uniform highp sampler2D textureSource3Group1;";
   return (
     `
     precision highp float; precision highp sampler2D; varying vec2 textureCoords;
@@ -426,8 +426,8 @@ export function RDShaderTopMRT(type) {
     uniform float globalIntegralValue2;
     uniform float globalIntegralValue3;
     uniform float globalIntegralValue4;
-    uniform sampler2D imageSourceOne;
-    uniform sampler2D imageSourceTwo;
+    uniform highp sampler2D imageSourceOne;
+    uniform highp sampler2D imageSourceTwo;
 
     AUXILIARY_GLSL_FUNS
 
@@ -445,7 +445,7 @@ export function RDShaderTopMRT(type) {
       return sqrt(sqrt(zERF*zERF - yERF * INV_ALPHA) - zERF) * sign(pERF);
     }
 
-    void computeRHS(sampler2D textureSource,
+    void computeRHS(highp sampler2D textureSource,
       vec4 uvwqIn, vec4 uvwqLIn, vec4 uvwqRIn, vec4 uvwqTIn, vec4 uvwqBIn, vec4 uvwqLLIn, vec4 uvwqRRIn, vec4 uvwqTTIn, vec4 uvwqBBIn,
       vec4 uvwq2In, vec4 uvwq2LIn, vec4 uvwq2RIn, vec4 uvwq2TIn, vec4 uvwq2BIn, vec4 uvwq2LLIn, vec4 uvwq2RRIn, vec4 uvwq2TTIn, vec4 uvwq2BBIn,
       out highp vec4 result0, out highp vec4 result1) {
@@ -1175,7 +1175,7 @@ export function RDShaderBot() {
 export function RDShaderEnforceDirichletTop() {
   return `precision highp float;
     varying vec2 textureCoords;
-    uniform sampler2D textureSource;
+    uniform highp sampler2D textureSource;
     uniform float dx;
     uniform float dy;
     uniform float L;
@@ -1187,8 +1187,8 @@ export function RDShaderEnforceDirichletTop() {
     uniform float globalIntegralValue2;
     uniform float globalIntegralValue3;
     uniform float globalIntegralValue4;
-    uniform sampler2D imageSourceOne;
-    uniform sampler2D imageSourceTwo;
+    uniform highp sampler2D imageSourceOne;
+    uniform highp sampler2D imageSourceTwo;
 
     AUXILIARY_GLSL_FUNS
 
@@ -1231,9 +1231,9 @@ export function RDShaderEnforceDirichletTop() {
 export function RDShaderEnforceDirichletTopMRT() {
   return RDShaderEnforceDirichletTop()
     .replace(
-      "uniform sampler2D textureSource;",
-      `uniform sampler2D textureSource;
-    uniform sampler2D textureSourceGroup1;
+      "uniform highp sampler2D textureSource;",
+      `uniform highp sampler2D textureSource;
+    uniform highp sampler2D textureSourceGroup1;
     layout(location = 0) out highp vec4 fragColor0;
     layout(location = 1) out highp vec4 fragColor1;`,
     )
@@ -1288,7 +1288,7 @@ export function clampSpeciesToEdgeShader(direction) {
 
 export function globalIntegralShader() {
   return `varying vec2 textureCoords;
-    uniform sampler2D textureSource;
+    uniform highp sampler2D textureSource;
     uniform float dx;
     uniform float dy;
     uniform float L;
@@ -1303,8 +1303,8 @@ export function globalIntegralShader() {
     uniform bool customSurface;
     uniform bool vectorField;
     uniform bool overlayLine;
-    uniform sampler2D imageSourceOne;
-    uniform sampler2D imageSourceTwo;
+    uniform highp sampler2D imageSourceOne;
+    uniform highp sampler2D imageSourceTwo;
 
     AUXILIARY_GLSL_FUNS
 
@@ -1392,8 +1392,8 @@ export function globalIntegralShader() {
 export function globalIntegralShaderMRT() {
   return globalIntegralShader()
     .replace(
-      "uniform sampler2D textureSource;",
-      "uniform sampler2D textureSource;\n    uniform sampler2D textureSourceGroup1;",
+      "uniform highp sampler2D textureSource;",
+      "uniform highp sampler2D textureSource;\n    uniform highp sampler2D textureSourceGroup1;",
     )
     .replace(
       "float value1 = GLOBAL_INTEGRAL_FUN1;",

@@ -48,7 +48,7 @@ async function load(){
   panels.forEach((id,i)=>{
     configs[id]={...getResolvedPreset('default'),...presets[i],runningOnLoad:false,brushEnabled:true};
     $(id+'-mean').textContent='—';
-    frames[id].src=`visualpde/sim/index.html?clean&research=7&iframeID=${token}-${id}#options=${encodeOptions(configs[id])}`;
+    frames[id].src=`visualpde/sim/index.html?clean&research=10&iframeID=${token}-${id}#options=${encodeOptions(configs[id])}`;
   });
   const nx=Math.floor(Number(configs.patterns.domainScale)/Number(configs.patterns.spatialStep));
   $('numerics').textContent=`Grid: ${nx} × ${nx/2}, Δx = Δy = ${configs.patterns.spatialStep}. Explicit Euler, Δt = ${configs.patterns.dt}. Both panels advance in synchronised batches of 200 steps.`;

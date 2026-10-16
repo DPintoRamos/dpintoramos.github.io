@@ -93,7 +93,7 @@ async function loadRegime({blank=false,keepParameters=false,parameterValues={}}=
   $('view').innerHTML=views.map((view,index)=>`<option value="${index}">${view.name}</option>`).join('');
   $('view').value=String(configuration.activeViewInd||0);
   $('preset-link').href=`presets/${selected}.json`;$('provenance-link').href=`assets/${model().provenance}`;
-  iframe.src=`visualpde/sim/index.html?clean&research=9${active==='prl'?'&colourbar=true':''}&iframeID=physics-${token}#options=${encodeOptions(configuration)}`;
+  iframe.src=`visualpde/sim/index.html?clean&research=10${active==='prl'?'&colourbar=true':''}&iframeID=physics-${token}#options=${encodeOptions(configuration)}`;
   fit();updateEditorLink();syncPhaseMap();
   watchdog=setTimeout(()=>{if(!ready)showError(new Error('The model is taking longer to load. Try Reset to reload it.'));},30000);
 }

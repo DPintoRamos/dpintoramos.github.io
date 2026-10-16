@@ -2,7 +2,7 @@
 
 export function computeDisplayFunShaderTop() {
   return `varying vec2 textureCoords;
-    uniform sampler2D textureSource;
+    uniform highp sampler2D textureSource;
     uniform float dx;
     uniform float dy;
     uniform float L;
@@ -17,8 +17,8 @@ export function computeDisplayFunShaderTop() {
     uniform bool customSurface;
     uniform bool vectorField;
     uniform bool overlayLine;
-    uniform sampler2D imageSourceOne;
-    uniform sampler2D imageSourceTwo;
+    uniform highp sampler2D imageSourceOne;
+    uniform highp sampler2D imageSourceTwo;
 
     AUXILIARY_GLSL_FUNS
 
@@ -117,8 +117,8 @@ export function computeDisplayFunShaderMid() {
 // only read it to compute one derived value, so no GLSL3/MRT output plumbing is needed here.
 export function computeDisplayFunShaderTopMRT() {
   return computeDisplayFunShaderTop().replace(
-    "uniform sampler2D textureSource;",
-    "uniform sampler2D textureSource;\n    uniform sampler2D textureSourceGroup1;",
+    "uniform highp sampler2D textureSource;",
+    "uniform highp sampler2D textureSource;\n    uniform highp sampler2D textureSourceGroup1;",
   );
 }
 
@@ -210,7 +210,7 @@ export function postGenericShaderBot() {
 
 export function interpolationShader() {
   return `varying vec2 textureCoords;
-    uniform sampler2D textureSource;
+    uniform highp sampler2D textureSource;
 
     void main()
     {
@@ -237,7 +237,7 @@ export function interpolationShader() {
 
 export function minMaxShader() {
   return `varying vec2 textureCoords; 
-    uniform sampler2D textureSource;
+    uniform highp sampler2D textureSource;
     uniform vec2 srcResolution;
     uniform bool firstFlag;
     
@@ -267,7 +267,7 @@ export function minMaxShader() {
 
 export function sumShader() {
   return `varying vec2 textureCoords;
-    uniform sampler2D textureSource;
+    uniform highp sampler2D textureSource;
     uniform vec2 srcResolution;
 
     void main()
@@ -291,7 +291,7 @@ export function sumShader() {
 
 export function probeShader() {
   return `varying vec2 textureCoords;
-    uniform sampler2D textureSource;
+    uniform highp sampler2D textureSource;
     uniform float dx;
     uniform float dy;
     uniform float L;
@@ -307,8 +307,8 @@ export function probeShader() {
     uniform bool probeUVs;
     uniform float probeU;
     uniform float probeV;
-    uniform sampler2D imageSourceOne;
-    uniform sampler2D imageSourceTwo;
+    uniform highp sampler2D imageSourceOne;
+    uniform highp sampler2D imageSourceTwo;
 
     AUXILIARY_GLSL_FUNS
     
@@ -383,8 +383,8 @@ export function probeShader() {
 export function probeShaderMRT() {
   return probeShader()
     .replace(
-      "uniform sampler2D textureSource;",
-      "uniform sampler2D textureSource;\n    uniform sampler2D textureSourceGroup1;",
+      "uniform highp sampler2D textureSource;",
+      "uniform highp sampler2D textureSource;\n    uniform highp sampler2D textureSourceGroup1;",
     )
     .replace(
       "      // Compute derivatives.",

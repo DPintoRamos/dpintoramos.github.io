@@ -2,9 +2,9 @@
 
 export function drawShaderTop() {
   return `varying vec2 textureCoords;
-    uniform sampler2D textureSource;
-	  uniform sampler2D imageSourceOne;
-	  uniform sampler2D imageSourceTwo;
+    uniform highp sampler2D textureSource;
+	  uniform highp sampler2D imageSourceOne;
+	  uniform highp sampler2D imageSourceTwo;
     uniform vec2 brushCoords;
     uniform float brushValueModifier;
     uniform float L;
@@ -76,9 +76,9 @@ export function drawShaderTop() {
 export function drawShaderTopMRT() {
   return drawShaderTop()
     .replace(
-      "uniform sampler2D textureSource;",
-      `uniform sampler2D textureSource;
-    uniform sampler2D textureSourceGroup1;
+      "uniform highp sampler2D textureSource;",
+      `uniform highp sampler2D textureSource;
+    uniform highp sampler2D textureSourceGroup1;
     layout(location = 0) out highp vec4 fragColor0;
     layout(location = 1) out highp vec4 fragColor1;`,
     )

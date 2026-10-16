@@ -18,7 +18,7 @@
       buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.openModel===name)));
       send('pause');frame?.remove();
       frame=document.createElement('iframe');frame.className='live-model-frame';frame.title=names[name]+' — interactive simulation';
-      const path=name==='pnas'?'pnas.html?embedded=1&v=8':physics.has(name)?`physics.html?embedded=1&v=3#${name}`:`index.html?embedded=1&v=2#${name}`;
+      const path=name==='pnas'?'pnas.html?embedded=1&v=9':physics.has(name)?`physics.html?embedded=1&v=4#${name}`:`index.html?embedded=1&v=3#${name}`;
       frame.src=new URL(path,labBase).href;frame.addEventListener('load',fitModel);mount.replaceChildren(frame);
       if(userInitiated)panel.scrollIntoView({behavior:reducedMotion.matches?'instant':'smooth',block:'start'});
       clearTimeout(timeout);timeout=setTimeout(()=>{loading.textContent='Still loading. Reload the page to try again.';},35000);

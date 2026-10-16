@@ -2,7 +2,7 @@
 
 export function copyShader() {
     return `varying vec2 textureCoords;
-    uniform sampler2D textureSource;
+    uniform highp sampler2D textureSource;
 
     void main()
     {
@@ -16,8 +16,8 @@ export function copyShader() {
 // attachment retains its previous contents - both groups must be explicitly copied through.
 export function copyShaderMRT() {
     return `varying vec2 textureCoords;
-    uniform sampler2D textureSource;
-    uniform sampler2D textureSourceGroup1;
+    uniform highp sampler2D textureSource;
+    uniform highp sampler2D textureSourceGroup1;
     layout(location = 0) out highp vec4 fragColor0;
     layout(location = 1) out highp vec4 fragColor1;
 

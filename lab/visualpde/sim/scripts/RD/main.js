@@ -19,7 +19,7 @@ import {
   drawShaderTopMRT,
   drawShaderBotReplaceMRT,
   drawShaderBotAddMRT,
-} from "./drawing_shaders.js";
+} from "./drawing_shaders.js?texturePrecision=1";
 import {
   computeDisplayFunShaderTop,
   computeDisplayFunShaderMid,
@@ -33,8 +33,8 @@ import {
   computeDisplayFunShaderTopMRT,
   computeDisplayFunShaderMidMRT,
   probeShaderMRT,
-} from "./post_shaders.js";
-import { copyShader, copyShaderMRT } from "../copy_shader.js";
+} from "./post_shaders.js?texturePrecision=1";
+import { copyShader, copyShaderMRT } from "../copy_shader.js?texturePrecision=1";
 import {
   RDShaderTop,
   RDShaderBot,
@@ -66,7 +66,7 @@ import {
   RDShaderUpdateNormalMRT,
   RDShaderUpdateCrossMRT,
   RDShaderBotMRT,
-} from "./simulation_shaders.js";
+} from "./simulation_shaders.js?texturePrecision=1";
 import { randShader, randNShader } from "../rand_shader.js?gaussian=2";
 import {
   fiveColourDisplayTop,
@@ -78,7 +78,7 @@ import {
   overlayShader,
   fiveColourDisplayTopMRT,
   overlayShaderMRT,
-} from "./display_shaders.js";
+} from "./display_shaders.js?texturePrecision=1";
 import { getColours } from "../colourmaps.js";
 import { genericVertexShader } from "../generic_shaders.js";
 import {
@@ -95,7 +95,7 @@ import {
   clearShaderTop,
   clearShaderTopMRT,
   clearShaderBotMRT,
-} from "./clear_shader.js";
+} from "./clear_shader.js?texturePrecision=1";
 import {
   numGroups,
   groupOfSpecies,
@@ -587,6 +587,18 @@ async function VisualPDE(url) {
     if (researchImagesReady.size === 2) {
       window.parent.postMessage({type:"research:ready", id:localOpts.id}, location.origin);
     }
+  }
+
+  function reportResearchImageError(slot, generation) {
+    if (!params.has("research") || generation !== researchImageGeneration) return;
+    researchImagesReady.delete(slot);
+    pauseSim();
+    window.parent.postMessage({
+      type: "research:error",
+      id: localOpts.id,
+      slot,
+      message: "The initial state could not be loaded. Reload the simulation to retry.",
+    }, location.origin);
   }
 
   if (params.has("no_ui")) {
@@ -1360,6 +1372,12 @@ async function VisualPDE(url) {
       blending: THREE.NoBlending,
       toneMapped: false,
     });
+    // Checkpoints store scientific float data, so their sampler must retain its
+    // range and precision on GPUs that honor the default lowp sampler precision.
+    checkpointMaterial.onBeforeCompile = (shader) => {
+      shader.fragmentShader =
+        "precision highp sampler2D;\n" + shader.fragmentShader;
+    };
     // MRT counterpart of checkpointMaterial (Stage 11.5 of the 8-species upgrade) - a
     // MeshBasicMaterial can only sample one texture/write one output, so restoring a
     // checkpoint once numGroups>1 needs a real ShaderMaterial instead. Reuses copyShaderMRT
@@ -7089,6 +7107,7 @@ async function VisualPDE(url) {
       }
       markResearchImageReady(1, imageGeneration);
     };
+    image.onerror = () => reportResearchImageError(1, imageGeneration);
     image.src = imControllerOne.__image.src;
     texture.dispose();
   }
@@ -7109,6 +7128,7 @@ async function VisualPDE(url) {
       }
       markResearchImageReady(2, imageGeneration);
     };
+    image.onerror = () => reportResearchImageError(2, imageGeneration);
     image.src = imControllerTwo.__image.src;
     texture.dispose();
   }

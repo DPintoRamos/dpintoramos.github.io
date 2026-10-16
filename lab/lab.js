@@ -32,7 +32,7 @@ const definitions={
 };
 
 let active='grl', configuration, ready=false, running=false, loadToken=0;
-let resumeWhenReady=false, drawing=false;
+let resumeWhenReady=false, drawing=false, lastProbe=null, loadFailed=false;
 let fieldHeight=embedded ? 480 : Math.min(520,window.innerHeight*.52);
 const iframe=$('simulation');
 function send(type,extra={}){iframe.contentWindow?.postMessage({type,...extra},location.origin);}
@@ -50,6 +50,15 @@ function fit(){
 new ResizeObserver(fit).observe($('simulation-shell'));
 window.addEventListener('resize',()=>{if(!embedded)fieldHeight=Math.min(520,window.innerHeight*.52);fit();});
 function showRunning(value){running=value;$('play').textContent=value?'Pause':'Play';}
+function showProbe(probe){$('clock').textContent=`t = ${probe.x.toFixed(1)}`;$('mean').textContent=`Mean biomass ${probe.y.toFixed(5)}`;}
+function markReady(){
+  if(ready||loadFailed)return;
+  ready=true;$('loading').hidden=true;$('play').disabled=false;
+  document.querySelectorAll('[data-parameter]').forEach(input=>input.disabled=false);
+  if(lastProbe)showProbe(lastProbe);
+  notifyParent('ready',{autoplay:!drawing});
+  if(resumeWhenReady&&!drawing){resumeWhenReady=false;send('playSim');showRunning(true);}
+}
 function updateParameter(name,value){
   configuration.kineticParams=configuration.kineticParams.replace(new RegExp('(^|;)\\s*'+name+'\\s*=\\s*[^;]+'),(_,prefix)=>`${prefix} ${name}=${value}`);
   send('updateParam',{name,value});
@@ -64,7 +73,8 @@ function updateEditorLink(){
 function valuesFromParams(){return Object.fromEntries(configuration.kineticParams.split(';').map(x=>x.trim()).filter(Boolean).map(x=>{const [name,value]=x.split('=');return [name.trim(),parseFloat(value)];}));}
 async function loadRegime({blank=false,keepParameters=false}={}){
   const token=++loadToken, previousParams=configuration?.kineticParams;
-  ready=false; drawing=blank; showRunning(false);
+  ready=false; lastProbe=null; loadFailed=false; drawing=blank; showRunning(false);$('play').disabled=true;
+  document.querySelectorAll('[data-parameter]').forEach(input=>input.disabled=true);
   $('loading').hidden=false;$('loading').textContent='Preparing the model…';
   $('clock').textContent='t = 0';$('mean').textContent='Mean biomass —';
   const selected=$('regime').value;
@@ -78,11 +88,11 @@ async function loadRegime({blank=false,keepParameters=false}={}){
   $('blank').setAttribute('aria-pressed',String(blank));
   $('try-note').textContent=blank?'Draw your starting patches on the field, then press Play. Reset restores the selected experiment.':definitions[active].tryNote;
   const values=valuesFromParams();
-  $('controls').innerHTML=definitions[active].controls.map(c=>`<div class="control"><label for="control-${c.name}">${c.label}<output id="${c.name}-value">${values[c.name].toFixed(active==='science'&&c.name==='eta'?6:3)}</output></label><input id="control-${c.name}" type="range" data-parameter="${c.name}" aria-label="${c.label}" min="${c.min}" max="${c.max}" step="${c.step}" value="${values[c.name]}"><small>${c.note}</small></div>`).join('');
+  $('controls').innerHTML=definitions[active].controls.map(c=>`<div class="control"><label for="control-${c.name}">${c.label}<output id="${c.name}-value">${values[c.name].toFixed(active==='science'&&c.name==='eta'?6:3)}</output></label><input id="control-${c.name}" type="range" data-parameter="${c.name}" aria-label="${c.label}" min="${c.min}" max="${c.max}" step="${c.step}" value="${values[c.name]}" disabled><small>${c.note}</small></div>`).join('');
   document.querySelectorAll('[data-parameter]').forEach(input=>input.addEventListener('input',()=>updateParameter(input.dataset.parameter,Number(input.value))));
   $('preset-link').href=`presets/${selected}.json`;
   $('provenance-link').href=`assets/${definitions[active].provenance}`;
-  iframe.src=`visualpde/sim/index.html?clean&iframeID=${token}#options=${encodeOptions(configuration)}`;
+  iframe.src=`visualpde/sim/index.html?clean&research=10&iframeID=${token}#options=${encodeOptions(configuration)}`;
   fit();updateEditorLink();
 }
 async function selectModel(name){
@@ -100,12 +110,15 @@ async function selectModel(name){
   await loadRegime();
 }
 window.addEventListener('message',event=>{
-  if(event.origin!==location.origin||event.source!==iframe.contentWindow||event.data?.type!=='probeData'||String(event.data.id)!==String(loadToken))return;
+  if(event.origin!==location.origin||event.source!==iframe.contentWindow||String(event.data?.id)!==String(loadToken))return;
+  if(event.data.type==='research:error'){showError(new Error(event.data.message||'Could not load the initial field. Try Reset.'));return;}
+  if(event.data.type==='research:ready'){markReady();return;}
+  if(event.data.type!=='probeData')return;
   const last=event.data.data?.at(-1);if(!last)return;
+  // Image-backed fields emit probes during each reset, before both images arrive.
+  if(!ready){lastProbe=Number.isFinite(last.x)&&Number.isFinite(last.y)?last:null;return;}
   if(!Number.isFinite(last.y)){send('pauseSim');showRunning(false);$('loading').hidden=false;$('loading').textContent='The numerical solution became unstable. Reset to the reference state.';return;}
-  const firstReady=!ready;ready=true;
-  if(firstReady){notifyParent('ready',{autoplay:!drawing});if(resumeWhenReady&&!drawing){resumeWhenReady=false;send('playSim');showRunning(true);}}
-  $('loading').hidden=true;$('clock').textContent=`t = ${last.x.toFixed(1)}`;$('mean').textContent=`Mean biomass ${last.y.toFixed(5)}`;
+  $('loading').hidden=true;showProbe(last);
 });
 window.addEventListener('message',event=>{
   if(!embedded||event.origin!==location.origin||event.source!==window.parent)return;
@@ -124,5 +137,9 @@ $('suggestion').addEventListener('click',()=>{
   Object.entries(m.suggestionValues).forEach(([name,value])=>updateParameter(name,value));send('playSim');showRunning(true);
 });
 document.addEventListener('visibilitychange',()=>{if(document.hidden){resumeWhenReady=false;send('pauseSim');showRunning(false);}});
-function showError(error){$('loading').hidden=false;$('loading').textContent=error.message;}
+function showError(error){
+  ready=false;loadFailed=true;resumeWhenReady=false;send('pauseSim');showRunning(false);$('play').disabled=true;
+  document.querySelectorAll('[data-parameter]').forEach(input=>input.disabled=true);
+  $('loading').hidden=false;$('loading').textContent=error.message;
+}
 selectModel(location.hash==='#science'?'science':'grl').catch(showError);

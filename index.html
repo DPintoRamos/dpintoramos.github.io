@@ -51,6 +51,8 @@
   <link rel="stylesheet" href="editorial.css?v=9">
   <script defer src="youtube-films.js?v=5"></script>
   <script defer src="interactive-models.js?v=13"></script>
+  <link rel="stylesheet" href="visitor-map.css">
+  <script defer src="visitor-map.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -246,10 +248,21 @@
             <div class="contact-item"><span class="email-label">Institutional</span><a class="contact-email" href="mailto:d.pinto-ramos@hzdr.de">d.pinto-ramos@hzdr.de</a></div>
           </div>
         </div>
-        <address><a href="https://www.casus.science/dynamics-of-complex-living-systems/">Dynamics of Complex Living Systems</a><br>Center for Advanced Systems Understanding<br>Helmholtz-Zentrum Dresden-Rossendorf<br>Görlitz, Germany</address>
+        <div class="contact-details">
+          <address><a href="https://www.casus.science/dynamics-of-complex-living-systems/">Dynamics of Complex Living Systems</a><br>Center for Advanced Systems Understanding<br>Helmholtz-Zentrum Dresden-Rossendorf<br>Görlitz, Germany</address>
+          <section class="visitor-map" id="visitors" aria-label="Visitor map" hidden>
+            <div class="visitor-map-copy">
+              <a class="visitor-map-source" href="https://mapmyvisitors.com/" target="_blank" rel="noopener">Visitors · MapMyVisitors <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="visitor-map-figure" id="visitor-map-mount"></div>
+          </section>
+        </div>
       </div>
     </section>
   </main>
-  <footer class="container site-footer"><span>© 2026 David Pinto Ramos</span><a href="#top">Back to top ↑</a></footer>
+  <footer class="container site-footer">
+    <span>© 2026 David Pinto Ramos</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
 </body>
 </html>

@@ -5,7 +5,7 @@ Serve the website root with an HTTP server, for example:
   python3 -m http.server 8000 --bind 127.0.0.1
 Then open http://127.0.0.1:8000/lab/ in a browser. The complete website is at
 http://127.0.0.1:8000/. Opening the HTML directly as a file does not load all
-browser modules and simulation data. See ../README.md for hosting and editing.
+browser modules and simulation data. See ../README.md for the website link and local preview.
 
 EXPLORE
 In index.html, choose the GRL or Science Advances tab. Press Play to evolve the selected state.
@@ -138,7 +138,7 @@ source hashes, including the replaced Science disordered branch.
 The folder is compatible with static GitHub Pages hosting. Keep lab/ and all
 its subfolders together within the website. No remote numerical backend is
 required: calculations run on the visitor's device. Films are hosted on YouTube.
-Source-reference conventions are explained in the website's root README.md.
+Source-reference conventions are listed under SOURCE REFERENCES below.
 
 ENGINE CREDIT
 VisualPDE.com by Benjamin Walker, Adam Townsend, and Andrew Krause.
@@ -180,3 +180,13 @@ the two optional tutorial movies use their existing WebM encodings. Research
 films load from YouTube; local video masters and unpublished topography images
 are not included in this repository. These packaging changes do not alter any
 model equation, initial field, integrator or parameter setting.
+
+SOURCE REFERENCES
+The source notes retain article identifiers, numerical choices and file hashes.
+research-repositories/<repository>/<path> identifies a file in the author's
+research repositories; it does not imply that the repository is public.
+author-source-library/ identifies an author-held article copy by title.
+author-production-archive/ identifies a separately retained production or
+verification record. These identifiers are source references, not website URLs.
+Paths beginning with lab/ are relative to the website root; short image and
+preset filenames refer to lab/assets/ and lab/presets/, respectively.

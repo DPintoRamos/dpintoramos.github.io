@@ -51,8 +51,8 @@
   <link rel="stylesheet" href="editorial.css?v=9">
   <script defer src="youtube-films.js?v=5"></script>
   <script defer src="interactive-models.js?v=14"></script>
-  <link rel="stylesheet" href="visitor-map.css">
-  <script defer src="visitor-map.js"></script>
+  <link rel="stylesheet" href="visitor-map.css?v=2">
+  <script defer src="visitor-map.js?v=3"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -241,22 +241,26 @@
     <!-- CONTACT: both email addresses are also visible in the introduction. -->
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
       <div class="container contact-inner">
-        <div>
+        <div class="contact-column contact-primary">
           <p class="eyebrow">Contact</p><h2 id="contact-title">Get in touch</h2>
           <div class="contact-emails">
             <div class="contact-item"><span class="email-label">Permanent</span><a class="contact-email" href="mailto:david.pinto@ug.uchile.cl">david.pinto@ug.uchile.cl</a></div>
             <div class="contact-item"><span class="email-label">Institutional</span><a class="contact-email" href="mailto:d.pinto-ramos@hzdr.de">d.pinto-ramos@hzdr.de</a></div>
           </div>
         </div>
-        <div class="contact-details">
-          <address><a href="https://www.casus.science/dynamics-of-complex-living-systems/">Dynamics of Complex Living Systems</a><br>Center for Advanced Systems Understanding<br>Helmholtz-Zentrum Dresden-Rossendorf<br>Görlitz, Germany</address>
-          <section class="visitor-map" id="visitors" aria-label="Visitor map" hidden>
-            <div class="visitor-map-copy">
-              <a class="visitor-map-source" href="https://mapmyvisitors.com/" target="_blank" rel="noopener">Visitors · MapMyVisitors <span aria-hidden="true">↗</span></a>
-            </div>
-            <div class="visitor-map-figure" id="visitor-map-mount"></div>
-          </section>
+        <div class="contact-column contact-details">
+          <p class="eyebrow">Find me</p>
+          <h3 class="contact-heading">Görlitz, Germany</h3>
+          <address><a href="https://www.casus.science/dynamics-of-complex-living-systems/">Dynamics of Complex Living Systems</a><span>Center for Advanced Systems Understanding</span><span>Helmholtz-Zentrum Dresden-Rossendorf</span></address>
         </div>
+        <section class="contact-column visitor-map" id="visitors" aria-labelledby="visitors-title" hidden>
+          <p class="eyebrow">Visitors</p>
+          <h3 class="contact-heading" id="visitors-title">Thanks for visiting</h3>
+          <div class="visitor-map-figure" id="visitor-map-mount"></div>
+          <div class="visitor-map-copy">
+            <a class="visitor-map-source" href="https://mapmyvisitors.com/web/1c8wo" target="_blank" rel="noopener">Visitors around the world · MapMyVisitors <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
       </div>
     </section>
   </main>

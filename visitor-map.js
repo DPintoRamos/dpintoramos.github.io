@@ -7,7 +7,7 @@
     enabled: true,
     token: 'V6cMOHHL6GHWILNKMp043PzoK5pPkRtjHgPnjreoKMQ',
     statisticsUrl: 'https://mapmyvisitors.com/web/1c8wo',
-    showMap: false,
+    showMap: true,
   };
 
   const section = document.getElementById('visitors');
@@ -18,35 +18,20 @@
   const preview = local && new URLSearchParams(location.search).get('visitor-map') === 'preview';
 
   if (preview) {
+    // A frozen, aggregate-only local snapshot avoids registering review visits.
     const image = document.createElement('img');
-    image.src = 'assets/visitors/map-preview.svg';
+    image.src = 'assets/visitors/map-snapshot-20261017.svg';
     image.width = 720;
     image.height = 310;
-    image.alt = 'World map with illustrative locations. These are example points, not recorded visits.';
-    mount.append(image);
-
-    const label = document.createElement('p');
-    label.className = 'visitor-map-example-label';
-    label.textContent = 'Design preview · example locations';
-    mount.append(label);
-
-    const controls = document.createElement('aside');
-    controls.className = 'container visitor-map-review';
-    controls.lang = 'es';
-    controls.setAttribute('aria-label', 'Controles de la vista previa local');
-    controls.innerHTML = '<div><strong>Vista local del mapa</strong><p>Puntos de ejemplo. Esta vista local no registra visitas.</p></div><div class="visitor-map-review-actions"><button type="button" data-show="true" aria-controls="visitors">Mostrar mapa</button><button type="button" data-show="false" aria-controls="visitors">Ocultar mapa</button></div>';
-    document.querySelector('.site-footer').before(controls);
-
-    const setVisible = (visible) => {
-      section.hidden = !visible;
-      for (const button of controls.querySelectorAll('button')) {
-        button.setAttribute('aria-pressed', String((button.dataset.show === 'true') === visible));
-      }
-    };
-    for (const button of controls.querySelectorAll('button')) {
-      button.addEventListener('click', () => setVisible(button.dataset.show === 'true'));
-    }
-    setVisible(true);
+    image.alt = 'Visitor locations in the United States and Singapore, as reported by MapMyVisitors on 17 October 2026. Locations are approximate.';
+    const link = document.createElement('a');
+    link.href = config.statisticsUrl;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.setAttribute('aria-label', 'View visitor statistics on MapMyVisitors');
+    link.append(image);
+    mount.append(link);
+    section.hidden = false;
     return;
   }
 
@@ -70,7 +55,7 @@
     return;
   }
 
-  // Future visible mode uses the same token and existing visitor history.
+  // Visible mode uses the same token and provider-managed visitor history.
   // This branch replaces the pixel branch; the two are never loaded together.
   section.hidden = false;
   if (config.statisticsUrl.startsWith('https://mapmyvisitors.com/web/')) {
@@ -78,6 +63,8 @@
   }
   params.set('w', 'a');
   params.set('co', 'e7eee5');
+  params.set('cmo', '24584b');
+  params.set('cmn', '548574');
   params.set('ct', '5b685f');
   params.set('t', 'n');
   const script = document.createElement('script');

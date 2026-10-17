@@ -67,6 +67,31 @@
   params.set('cmn', '548574');
   params.set('ct', '5b685f');
   params.set('t', 'n');
+
+  // The provider fixes its pixel width when first loaded. Scale the complete
+  // widget together so its background, markers and controls stay aligned.
+  let observedWidget;
+  const fitMap = () => {
+    const widget = mount.querySelector('#mapmyvisitors-widget');
+    if (!widget) return;
+    if (widget !== observedWidget) {
+      observedWidget = widget;
+      widget.href = config.statisticsUrl;
+      widget.target = '_blank';
+      widget.rel = 'noopener';
+      widget.setAttribute('aria-label', 'View visitor statistics on MapMyVisitors');
+      sizes.observe(widget);
+    }
+    if (!widget.offsetWidth || !widget.offsetHeight) return;
+    const scale = Math.min(1, mount.clientWidth / widget.offsetWidth);
+    widget.style.transformOrigin = 'top left';
+    widget.style.transform = scale < 1 ? `scale(${scale})` : '';
+    mount.style.height = `${widget.offsetHeight * scale}px`;
+  };
+  const sizes = new ResizeObserver(fitMap);
+  sizes.observe(mount);
+  new MutationObserver(fitMap).observe(mount, { childList: true });
+
   const script = document.createElement('script');
   script.id = 'mapmyvisitors';
   script.async = true;

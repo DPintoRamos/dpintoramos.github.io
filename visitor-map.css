@@ -29,7 +29,7 @@
   scroll-margin-top: 1.5rem;
 }
 .visitor-map .contact-heading { margin-bottom: 1.25rem; }
-.visitor-map-figure { width: 100%; min-width: 0; }
+.visitor-map-figure { width: 100%; min-width: 0; overflow: hidden; }
 .visitor-map-figure img { display: block; width: 100%; height: auto; }
 .visitor-map-figure > a { display: block; }
 .visitor-map-copy { margin-top: .75rem; text-align: center; line-height: 1.4; }

@@ -47,7 +47,7 @@
   "spatialStep": "0.49839252336448603",
   "initCond_1": "1.5*(I_SR*16711680+I_SG*65280+I_SB*255)/16777215",
   "initCond_2": "-4.253586449200557+8.202675349917092*(I_TR*16711680+I_TG*65280+I_TB*255)/16777215",
-  "kineticParams": "eta=0.15 in [0.1,0.001,0.19]; Gamma=0.08 in [0,0.005,0.12]; kappa=0.6; d=0.02; gamma=0.65; alpha=0.125;",
+  "kineticParams": "eta=0.13 in [0.1,0.001,0.19]; Gamma=0.08 in [0,0.005,0.12]; kappa=0.6; d=0.02; gamma=0.65; alpha=0.125;",
   "expressions": "cardinal=b[x+dx,y]+b[x-dx,y]+b[x,y+dy]+b[x,y-dy]; diagonal=b[x+dx,y+dy]+b[x+dx,y-dy]+b[x-dx,y+dy]+b[x-dx,y-dy]; second=b[x+2*dx,y]+b[x-2*dx,y]+b[x,y+2*dy]+b[x,y-2*dy]; laplace=(cardinal-4*b)/(dx^2); biharmonic=(second+2*diagonal-8*cardinal+20*b)/(dx^4);",
   "expressionsShow": "00000",
   "reactionStr_1": "-(eta+Gamma*xi)*b+kappa*b^2-b^3+(d-gamma*b)*laplace-alpha*b*biharmonic"

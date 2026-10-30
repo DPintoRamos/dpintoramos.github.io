@@ -18,7 +18,7 @@ const definitions={
     equation:'∂<sub>t</sub><em>b</em> = −(η + Γξ)<em>b</em> + κ<em>b</em><sup>2</sup> − <em>b</em><sup>3</sup> + (<em>d</em> − γ<em>b</em>)∇<sup>2</sup><em>b</em> − α<em>b</em>∇<sup>4</sup><em>b</em>',
     note:'Equation (1), with spatially heterogeneous aridity. ξ(x,y) is a fixed Gaussian field with zero ensemble mean and unit variance.',
     parameters:[['b','normalised biomass'],['η','mean aridity'],['Γ','heterogeneity strength'],['κ = 0.6','cooperativity'],['d = 0.02','dispersal'],['γ = 0.65; α = 0.125','spatial interaction terms']],
-    methods:'<p>Both experiments begin with 20 Gaussian spots placed at random. Clustering uses η = 0.15 and Γ = 0.08; homogeneous self-replication uses η = 0.12 and Γ = 0.</p><p>The 214 × 214 grid uses Δx = Δy ≈ 0.49839 and periodic boundaries. The spatial stencils follow the deposited research code. VisualPDE advances the field with explicit Euler, Δt = 0.001.</p>',
+    methods:'<p>Both experiments begin with 20 Gaussian spots placed at random. Clustering uses η = 0.13 and Γ = 0.08; homogeneous self-replication uses η = 0.12 and Γ = 0.</p><p>The 214 × 214 grid uses Δx = Δy ≈ 0.49839 and periodic boundaries. The spatial stencils follow the deposited research code. VisualPDE advances the field with explicit Euler, Δt = 0.001.</p>',
     provenance:'grl-live-states-provenance.json',suggestion:'Try homogeneous self-replication',suggestionRegime:'grl-homogeneous',tryNote:'Let the spots grow and divide. Choose an experiment to compare the two environments.'},
   science:{title:'Where bands break and reconnect',kicker:'Science Advances · 2023',doi:'https://doi.org/10.1126/sciadv.adf6620',width:1024,height:512,
     description:'Follow migrating vegetation bands and their dislocations. Compare regular bands, a state with defects near the boundary, and a strongly disordered state.',
@@ -78,7 +78,7 @@ async function loadRegime({blank=false,keepParameters=false}={}){
   $('loading').hidden=false;$('loading').textContent='Preparing the model…';
   $('clock').textContent='t = 0';$('mean').textContent='Mean biomass —';
   const selected=$('regime').value;
-  const response=await fetch(`presets/${selected}.json`);
+  const response=await fetch(`presets/${selected}.json?v=20261030`);
   if(!response.ok)throw new Error('Could not load this model.');
   const delta=await response.json();if(token!==loadToken)return;
   configuration={...getResolvedPreset('default'),...delta};

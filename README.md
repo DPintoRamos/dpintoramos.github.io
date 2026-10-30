@@ -2,7 +2,7 @@
 
 [dpintoramos.github.io](https://dpintoramos.github.io/)
 
-My research website, with interactive simulations and code from my work on nonlinear dynamics, pattern formation and ecological systems.
+My research website, with my academic background, publications and CV, alongside interactive simulations and code from my work on nonlinear dynamics, pattern formation and ecological systems.
 
 ## Local preview
 

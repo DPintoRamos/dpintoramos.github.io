@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#24584b"><title>Research | David Pinto Ramos</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="editorial.css?v=9"><link rel="stylesheet" href="visitor-map.css?v=3"><link rel="stylesheet" href="profile.css?v=20261030"><script defer src="youtube-films.js?v=5"></script><script defer src="interactive-models.js?v=15"></script>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#24584b"><title>Research | David Pinto Ramos</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="editorial.css?v=9"><link rel="stylesheet" href="visitor-map.css?v=3"><link rel="stylesheet" href="profile.css?v=20261030"><link rel="stylesheet" href="labyrinth.css?v=2"><script defer src="youtube-films.js?v=5"></script><script defer src="interactive-models.js?v=15"></script><script defer src="ibm-embed.js?v=2"></script>
 <meta name="description" content="Explore David Pinto Ramos’s research on nonlinear dynamics, pattern formation and ecological systems, with interactive simulations and simulation code.">
 <link rel="canonical" href="https://dpintoramos.github.io/research.html">
 <meta property="og:type" content="website">
@@ -39,7 +39,7 @@
         <div><p class="eyebrow">Populations &amp; landscapes</p><h2 id="simulations-title">Physics of Ecological Systems</h2></div>
         <div class="simulation-introduction"><p>From individual competition to collective spatial order. Explore how interactions, heterogeneity and transport shape populations and their resilience.</p><a class="live-jump" href="#interactive-simulations">Explore the live models <span aria-hidden="true">↓</span></a></div>
       </div>
-      <div class="simulation-grid">
+      <div class="simulation-grid ecological-films">
         <figure class="simulation-film">
           <div class="film-frame">
           <div id="hoi-video" class="simulation-stage hoi-stage youtube-stage" data-youtube-id="W0gRZAx5kJw" data-video-title="Higher-order competition in population dynamics" data-video-status="hoi-video-status">
@@ -58,7 +58,25 @@
             <p class="video-status" id="hoi-video-status" role="status" hidden></p>
           </figcaption>
         </figure>
-        <figure class="simulation-film">
+        <figure class="simulation-film" id="hoi-labyrinth-film">
+          <div class="film-frame">
+            <div id="hoi-labyrinth-video" class="simulation-stage hoi-stage youtube-stage" data-youtube-id="Ci2gZN7DSro" data-video-title="From a random population to fluctuating labyrinths: higher-order competition" data-video-status="hoi-labyrinth-video-status">
+              <a class="youtube-preview" href="https://www.youtube.com/watch?v=Ci2gZN7DSro" aria-label="Play the fluctuating labyrinth simulation" aria-describedby="hoi-labyrinth-caption">
+                <img src="assets/simulations/hoi-labyrinth-poster.png" width="720" height="784" loading="lazy" alt="">
+                <span class="youtube-preview-control"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5 13 8l-9 5.5Z" fill="currentColor"/></svg>Play film</span>
+              </a>
+            </div>
+          </div>
+          <figcaption id="hoi-labyrinth-caption">
+            <p class="entry-meta">Fixed interactions · demographic fluctuations</p>
+            <h3>Fluctuating labyrinths</h3>
+            <p>Starting from random positions, curved bands emerge and reorganise. Interaction strength stays fixed while random births and deaths keep the pattern moving.</p>
+            <p class="simulation-note">Individual-based simulation · 1 min</p>
+            <div class="film-links"><button class="film-toggle" type="button" data-film-toggle aria-controls="youtube-Ci2gZN7DSro" disabled hidden>Play film</button><a href="https://arxiv.org/abs/2609.29725">Read the preprint <span aria-hidden="true">↗</span></a><a href="https://www.youtube.com/watch?v=Ci2gZN7DSro" target="_blank" rel="noopener">Watch on YouTube <span aria-hidden="true">↗</span></a></div>
+            <p class="video-status" id="hoi-labyrinth-video-status" role="status" hidden></p>
+          </figcaption>
+        </figure>
+        <figure class="simulation-film" id="physica-d" aria-labelledby="physica-d-film-title">
           <div class="film-frame">
           <div id="ibm-video" class="simulation-stage hoi-stage youtube-stage" data-youtube-id="TXAbj-0A9jM" data-video-title="From irregular clusters to hexagonal patterns: individual-based population dynamics" data-video-status="ibm-video-status">
             <a class="youtube-preview" href="https://www.youtube.com/watch?v=TXAbj-0A9jM" aria-label="Play the individual-based competition simulation" aria-describedby="ibm-caption">
@@ -69,7 +87,7 @@
           </div>
           <figcaption id="ibm-caption">
             <p class="entry-meta">Individual-based dynamics · Physica D</p>
-            <h3>From irregular aggregates to ordered clusters</h3>
+            <h3 id="physica-d-film-title">From irregular aggregates to ordered clusters</h3>
             <p>Individuals reproduce, disperse and compete. As the competition kernel becomes sharper, irregular aggregates give way to clusters with local hexagonal order. The slider follows the competition-kernel exponent p, from 0.1 to 16.</p>
             <p class="simulation-note">Individual-based simulation · 1 min 12 s</p>
             <div class="film-links"><button class="film-toggle" type="button" data-film-toggle aria-controls="youtube-TXAbj-0A9jM" disabled hidden>Play film</button><a href="https://doi.org/10.1016/j.physd.2025.134703">Read the paper <span aria-hidden="true">↗</span></a><a href="https://www.youtube.com/watch?v=TXAbj-0A9jM" target="_blank" rel="noopener">Watch on YouTube <span aria-hidden="true">↗</span></a></div>
@@ -77,6 +95,7 @@
           </figcaption>
         </figure>
       </div>
+      <div class="ibm-pilot-entry" id="ibm-pilot-entry"></div>
       <section class="interactive-models" id="interactive-simulations" aria-labelledby="interactive-title" data-live-models data-default-model="grl">
         <div class="interactive-heading">
           <div><p class="eyebrow">Explore the equations</p><h3 id="interactive-title">Patterns, live.</h3></div>

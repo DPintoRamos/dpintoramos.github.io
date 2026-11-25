@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#24584b">
+  <title>Individuals &amp; patterns | David Pinto Ramos</title>
+  <script>document.documentElement.classList.toggle('embedded',new URLSearchParams(location.search).has('embedded'));</script>
+  <link rel="stylesheet" href="ibm.css?v=3"><script defer src="app.js?v=5"></script>
+</head><body>
+  <header class="masthead"><a class="wordmark" href="../index.html">David Pinto Ramos <span aria-hidden="true">●</span></a><a href="../research.html#physica-d">← Back to Research</a></header>
+  <main class="ibm-shell">
+    <div class="page-heading"><p class="eyebrow">Individual-based dynamics · Physica D &amp; HOI</p><h1>Individuals.<br>Collective patterns.</h1><p>Birth, dispersal and competition, one individual at a time. Change the interactions and watch the population find its own spatial organisation.</p></div>
+    <div class="embed-heading"><p class="eyebrow">Try the model</p><h2>Your turn.</h2><a href="./index.html" target="_blank" rel="noopener">Open a larger view ↗</a></div>
+    <div class="parameter-presets">
+      <div class="preset-buttons" role="group" aria-label="Parameter presets" aria-describedby="preset-hint">
+        <button class="button" type="button" data-preset="physica-d" aria-pressed="false" disabled>Physica D · Patterns</button>
+        <button class="button" type="button" data-preset="hoi-browser" aria-pressed="false" disabled>HOI · browser</button>
+      </div>
+      <p class="control-hint" id="preset-hint">Each preset restarts from the same random positions for the selected seed.</p>
+    </div>
+    <section class="experiment" aria-label="Interactive individual-based model">
+      <div class="field-column">
+        <div class="field-wrap"><canvas id="population" width="800" height="800" tabindex="0" role="img" aria-label="Individuals on a periodic square. Click or drag to add individuals. Arrow keys move a cursor; Enter adds a patch."></canvas><span class="field-label">20 × 20 · periodic domain</span></div>
+        <div class="readouts" aria-label="Simulation readouts"><span><small>Individuals</small><strong id="population-count">—</strong></span><span><small>Model time</small><strong id="model-time">0.0</strong></span><span><small id="pace-label">Paused</small><strong id="measured-pace">—</strong></span></div>
+        <p class="field-instruction">Click or drag to add a patch of individuals.</p>
+        <p id="status" class="status" role="status">Loading the model…</p>
+      </div>
+      <div class="controls">
+        <div class="control-group kernel-control">
+          <div class="control-title"><label for="competition-radius">Pairwise kernel scale · r<sub>c</sub></label><output id="competition-radius-value" for="competition-radius">2.20</output></div>
+          <svg class="kernel-chart" viewBox="0 0 300 60" preserveAspectRatio="none" role="img" aria-label="Competition kernel scaled to its peak, over distances 0 to 8"><path class="kernel-baseline" d="M0 55H300"></path><path id="kernel-curve"></path></svg>
+          <div class="range-ends kernel-axis" aria-hidden="true"><span>0</span><span>Distance · r</span><span>8</span></div>
+          <input id="competition-radius" type="range" min="0.5" max="4" step="0.01" value="2.2">
+          <div class="kernel-exponent">
+            <div class="control-title"><label for="exponent">Competition shape · p</label><output id="exponent-value" for="exponent">0.10</output></div>
+            <input id="exponent" type="range" min="-2.302585093" max="4.852030264" step="any" value="-2.302585093" aria-valuetext="p equals 0.10">
+            <div class="kernel-presets" role="group" aria-label="Competition shape presets"><button type="button" data-exponent="0.1" aria-pressed="true">Broad</button><button type="button" data-exponent="2" aria-pressed="false">Gaussian</button><button type="button" data-exponent="16" aria-pressed="false">Sharp</button></div>
+          </div>
+        </div>
+        <div class="control-group"><div class="control-title"><label for="birth-rate">Birth rate · b</label><output id="birth-rate-value" for="birth-rate">3.050</output></div><input id="birth-rate" type="range" min="0.305" max="100" step="0.005" value="3.05" aria-describedby="death-rate-note"><div class="range-ends"><span>0.305</span><span>100</span></div><p class="control-hint" id="death-rate-note">Background death · d = <output id="death-rate-value" for="birth-rate">0.3050</output> · d/b = 0.1</p></div>
+        <div class="control-group">
+          <div class="control-title"><label for="hoi-strength">Higher-order competition · bγ</label><output id="hoi-strength-value" for="hoi-strength">0.000</output></div>
+          <input id="hoi-strength" type="range" min="0" max="0.08" step="0.001" value="0" aria-describedby="hoi-hint">
+          <div class="range-ends"><span>Pairwise only</span><span>Stronger HOI</span></div>
+          <p class="control-hint" id="hoi-hint">Adds mortality proportional to the square of the local crowding.</p>
+          <div class="control-title hoi-radius-title"><label for="hoi-radius">HOI neighbourhood radius · r<sub>h.o.</sub></label><output id="hoi-radius-value" for="hoi-radius">0.0625</output></div>
+          <input id="hoi-radius" type="range" min="0.025" max="0.25" step="0.0025" value="0.0625">
+        </div>
+        <div class="primary-actions"><button id="play" class="button primary" type="button" disabled>Play</button><button id="step" class="button" type="button" disabled>Step +1</button></div>
+        <details class="advanced-controls"><summary>Dispersal, pace &amp; seed</summary>
+        <div class="control-group"><div class="control-title"><label for="dispersal">Offspring dispersal · s</label><output id="dispersal-value" for="dispersal">0.15</output></div><input id="dispersal" type="range" min="0" max="1.25" step="0.01" value="0.15"><p class="control-hint">How far a newborn travels from its parent.</p></div>
+        <div class="control-group"><div class="control-title"><label for="speed">Simulation pace</label><output id="speed-value" for="speed">20×</output></div><input id="speed" type="range" min="1" max="80" step="1" value="20"><p class="control-hint">Requested model time per second. Slower devices advance at their own pace.</p></div>
+        <div class="seed-row"><label for="seed">Random seed</label><input id="seed" type="number" min="0" max="4294967295" step="1" value="20261102"></div>
+        </details>
+        <div class="secondary-actions"><button id="reset" class="button" type="button" disabled>Reset population</button><button id="new-seed" class="button" type="button" disabled>New seed</button><button id="clear" class="button clear-button" type="button" disabled>Blank canvas</button></div>
+        <p class="control-hint reset-note">Reset starts a random population with your current kernel, rates and dispersal.</p>
+      </div>
+    </section>
+    <details class="model-notes"><summary>About this experiment</summary><div>
+      <p>Each individual gives birth at the selected rate <i>b</i> (initially 3.05). A newborn is placed at a Gaussian displacement with standard deviation <i>s</i> in each direction. The background death rate is <i>d</i> = 0.1<i>b</i>. Pairwise competition adds the kernel contributions of the other individuals to this rate.</p>
+      <p class="equation">K<sub>p</sub>(r) = exp[−(r / r<sub>c</sub>)<sup>p</sup>] / Z<sub>p</sub></p>
+      <p>The scale r<sub>c</sub> sets the distance at which the kernel falls to 1/e of its peak. The profile is super-Gaussian at <i>p</i> &gt; 2 and approaches a disk as <i>p</i> increases. The kernel integrates to one over the periodic domain and uses shortest periodic distances. The plot shows its shape relative to its peak.</p>
+      <p>Higher-order competition adds a local death rate to the pairwise contribution.</p>
+      <p class="equation">d<sub>HOI,i</sub> = γ [m<sub>i</sub> / (π r<sub>h.o.</sub><sup>2</sup>)]<sup>2</sup></p>
+      <p>Here m<sub>i</sub> counts other individuals within r<sub>h.o.</sub> of individual <i>i</i> across the periodic domain. Each neighbour can contribute to both factors of the square. The slider sets <i>b</i>γ, so at a fixed slider value γ varies inversely with <i>b</i>. At zero, only pairwise competition contributes.</p>
+      <p><strong>Physica D · Patterns</strong> uses r<sub>c</sub> = 2.2, <i>s</i> = 0.15 and <i>b</i> = 3.05 from the article’s ordered cluster example, with HOI off. Both presets approximate the published disk-shaped pairwise kernel with the same steep super-Gaussian, <i>p</i> = 128.</p>
+      <p><strong>HOI · browser</strong> uses the study’s r<sub>c</sub> = 1.25, r<sub>h.o.</sub> = 0.0625 and <i>s</i> = 0.05, with <i>b</i> = 50 and <i>b</i>γ = 0.025 for exploration at lower population. Figure 1 of the preprint uses <i>b</i> = 1920. The pattern regimes at the browser settings need separate validation.</p>
+      <p>Reset starts with 1,098 random individuals at your selected rates. At zero HOI, increasing <i>b</i> raises the homogeneous population scale, 400(<i>b</i> − <i>d</i>). Larger populations can advance more slowly.</p>
+      <p><a href="https://doi.org/10.1016/j.physd.2025.134703" target="_blank" rel="noopener">Surendran, Pinto-Ramos, Menezes &amp; Martinez-Garcia · Physica D (2025) ↗</a></p>
+      <p><a href="https://arxiv.org/abs/2609.29725" target="_blank" rel="noopener">Pinto-Ramos, Surendran &amp; Martinez-Garcia · Higher-order competition ↗</a></p>
+    </div></details>
+  </main>
+</body></html>
